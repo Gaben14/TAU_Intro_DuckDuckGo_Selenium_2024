@@ -4,6 +4,7 @@ This module contains shared fixtures.
 import pytest
 import selenium.webdriver
 
+
 @pytest.fixture
 def browser():
     # Initialize the ChromeDriver instance
