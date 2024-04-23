@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Chapter 5 completed.">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Chapter 6 completed.">
+      <change afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/result.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +87,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713548973345</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Chapter 6 completed.">
+      <option name="closed" value="true" />
+      <created>1713552668237</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713552668237</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,6 +112,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Chapter 4 completed." />
     <MESSAGE value="Chapter 5 completed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Chapter 5 completed." />
+    <MESSAGE value="Chapter 6 completed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Chapter 6 completed." />
   </component>
 </project>

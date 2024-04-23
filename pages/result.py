@@ -7,6 +7,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 # to use the Intellisense for selenium, we need to import WebDriver and assign it
 # to browser in the constructor
 
+
 class DuckDuckGoSearchResult:
     # Locators:
     RESULT_LINKS = (By.CSS_SELECTOR, 'a.result__a')

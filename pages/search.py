@@ -4,6 +4,7 @@ the page object for the DuckDuckGo search page.
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.remote.webdriver import WebDriver
 
 
 class DuckDuckGoSearchPage:
@@ -11,10 +12,10 @@ class DuckDuckGoSearchPage:
     URL = 'https://www.duckduckgo.com'
 
     # Locators: (Add them as Class variables --> all letters as uppercase)
-    SEARCH_INPUT = (By.ID, 'search_form_input_homepage')
+    SEARCH_INPUT = (By.ID, 'searchbox_input')
 
     # Constructor:
-    def __init__(self, browser):
+    def __init__(self, browser: WebDriver):
         # assigning the browser fixture to self
         self.browser = browser
 
