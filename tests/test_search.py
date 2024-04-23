@@ -1,15 +1,18 @@
 """
 These tests (test cases) cover DuckDuckGo searches.
 """
+import pytest
+
 from pages.result import DuckDuckGoSearchResult
 from pages.search import DuckDuckGoSearchPage
 
 
-def test_basic_duckduckgo_search(browser):
+@pytest.mark.parametrize('phrase', ['panda', 'python', 'polar bear'])
+def test_basic_duckduckgo_search(browser, phrase):
     search_page = DuckDuckGoSearchPage(browser)
     result_page = DuckDuckGoSearchResult(browser)
 
-    PHRASE = 'panda'
+    PHRASE = phrase
 
     # GIVEN the DuckDuckGo home page is displayed
     search_page.load()
