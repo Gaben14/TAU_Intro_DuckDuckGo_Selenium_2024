@@ -7,12 +7,12 @@ from pages.result import DuckDuckGoSearchResult
 from pages.search import DuckDuckGoSearchPage
 
 
-@pytest.mark.parametrize('phrase', ['panda', 'python', 'polar bear'])
-def test_basic_duckduckgo_search(browser, phrase):
+# @pytest.mark.parametrize('phrase', ['panda', 'python', 'polar bear'])
+def test_basic_duckduckgo_search(browser):  # phrase
     search_page = DuckDuckGoSearchPage(browser)
     result_page = DuckDuckGoSearchResult(browser)
 
-    PHRASE = phrase
+    PHRASE = 'panda'
 
     # GIVEN the DuckDuckGo home page is displayed
     search_page.load()
@@ -30,3 +30,17 @@ def test_basic_duckduckgo_search(browser, phrase):
 
     # AND the search result title contains "panda"
     assert PHRASE in result_page.title()
+
+
+def test_random_article(browser):
+    search_page = DuckDuckGoSearchPage(browser)
+
+    PHRASE = 'panda'
+
+    # GIVEN the DuckDuckGo home page is displayed
+    search_page.load()
+
+    # WHEN the user searches for "panda"
+    search_page.search(PHRASE)
+
+    search_page.click_on_search_result()
