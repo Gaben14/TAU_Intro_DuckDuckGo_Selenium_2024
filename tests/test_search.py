@@ -38,17 +38,19 @@ class TestSearch:
 
     def test_random_article(self, browser):
         search_page = DuckDuckGoSearchPage(browser)
+        result_page = DuckDuckGoSearchResult(browser)
 
         # GIVEN the DuckDuckGo home page is displayed
         search_page.load()
 
-        # WHEN the user searches for "panda"
+        # WHEN the user searches for "phrase"
         search_page.search(self.PHRASE)
 
         # AND: Click on search result
         search_page.click_on_search_result()
 
-        # TODO: THEN assert search result contains 'Phrase' in title
+        # THEN assert search result contains 'Phrase' in title
+        assert self.PHRASE in result_page.title()
 
     def test_autocomplete_search(self, browser):
         # GIVEN the DuckDuckGo home page is displayed
