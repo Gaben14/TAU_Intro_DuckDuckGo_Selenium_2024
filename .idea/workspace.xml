@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Chapter 8 completed.">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Completing:&#10;-search by clicking the button instead of typing RETURN&#10;-click a search result&quot;">
+      <change afterPath="$PROJECT_DIR$/tests/test_result.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/result.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
     </list>
@@ -108,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713894397886</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Completing:&#10;-search by clicking the button instead of typing RETURN&#10;-click a search result&quot;">
+      <option name="closed" value="true" />
+      <created>1714141436262</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714141436262</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +138,7 @@
     <MESSAGE value="Chapter 6 completed." />
     <MESSAGE value="Chapter 7 completed." />
     <MESSAGE value="Chapter 8 completed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Chapter 8 completed." />
+    <MESSAGE value="Completing:&#10;-search by clicking the button instead of typing RETURN&#10;-click a search result&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completing:&#10;-search by clicking the button instead of typing RETURN&#10;-click a search result&quot;" />
   </component>
 </project>

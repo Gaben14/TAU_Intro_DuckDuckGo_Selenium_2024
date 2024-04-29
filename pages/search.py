@@ -2,10 +2,16 @@
 This module contains DuckDuckGoSearchPage,
 the page object for the DuckDuckGo search page.
 """
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webdriver import WebDriver
 import random
+
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 class DuckDuckGoSearchPage:
     # URL - Class variable
@@ -17,6 +23,8 @@ class DuckDuckGoSearchPage:
     RESULT_TITLE = (By.CSS_SELECTOR, '[data-testid="result-title-a"]')
     rnd_num = random.randint(0, 9)
     RANDOM_ARTICLE = (By.CSS_SELECTOR, f"#r1-{rnd_num} a[data-testid='result-title-a']")
+    AUTOCOMPLETE_CONTAINER = (By.ID, 'listbox--searchbox_homepage')
+    AUTOCOMPLETE_SUGGESTIONS_LI = (By.CLASS_NAME, 'searchbox_suggestion__csrUQ')
 
     # Constructor:
     def __init__(self, browser: WebDriver):
@@ -42,3 +50,19 @@ class DuckDuckGoSearchPage:
         # click inside the <a> with data-testid="result-title-a
         rnd_article.click()
 
+    def search_autocomplete(self, phrase):
+        # Click in the search_input selector and enter a text to search
+        search_input = self.browser.find_element(*self.SEARCH_INPUT)
+        search_input.send_keys(phrase)
+        # Get all the autocomplete suggestions inside a list
+        # Wait explicitly until the autocomplete is visible
+        autocomplete_container = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located(self.AUTOCOMPLETE_CONTAINER)
+        )
+        autocomplete_suggestions_li = self.browser.find_elements(*self.AUTOCOMPLETE_SUGGESTIONS_LI)
+
+        return autocomplete_suggestions_li
+
+    def click_on_autocomplete_result(self, autocomplete_list):
+        # Randomly click on one of the autocomplete suggestion results
+        autocomplete_list[self.rnd_num].click()

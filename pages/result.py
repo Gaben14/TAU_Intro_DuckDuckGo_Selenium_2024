@@ -12,6 +12,7 @@ class DuckDuckGoSearchResult:
     # Locators:
     RESULT_LINKS = (By.CSS_SELECTOR, 'a.result__a')
     SEARCH_INPUT = (By.ID, 'search_form_input')
+    MORE_RESULTS = (By.ID, "more-results")
 
     # Constructor - Initializer
     def __init__(self, browser: WebDriver):
@@ -31,3 +32,8 @@ class DuckDuckGoSearchResult:
 
     def title(self):
         return self.browser.title
+
+    def click_on_more_results(self):
+        more_results = self.browser.find_element(*self.MORE_RESULTS)
+        more_results.click()
+
