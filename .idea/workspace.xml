@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Completing:&#10;-search by selecting an auto-complete suggestion">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Completing:&#10;- Update test_random_article test case">
+      <change afterPath="$PROJECT_DIR$/pages/image_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714395379033</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Completing:&#10;- Update test_random_article test case">
+      <option name="closed" value="true" />
+      <created>1714397411185</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714397411185</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,6 +155,7 @@
     <MESSAGE value="Chapter 8 completed." />
     <MESSAGE value="Completing:&#10;-search by clicking the button instead of typing RETURN&#10;-click a search result&quot;" />
     <MESSAGE value="Completing:&#10;-search by selecting an auto-complete suggestion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completing:&#10;-search by selecting an auto-complete suggestion" />
+    <MESSAGE value="Completing:&#10;- Update test_random_article test case" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completing:&#10;- Update test_random_article test case" />
   </component>
 </project>
