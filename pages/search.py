@@ -12,9 +12,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class DuckDuckGoSearchPage:
-    # URL - Class variable
-    URL = 'https://www.duckduckgo.com'
-
     # Locators: (Add them as Class variables --> all letters as uppercase)
     SEARCH_INPUT = (By.ID, 'searchbox_input')
     SEARCH_BUTTON = (By.CSS_SELECTOR, '[aria-label="Search"]')
@@ -25,16 +22,18 @@ class DuckDuckGoSearchPage:
     AUTOCOMPLETE_SUGGESTIONS_LI = (By.CLASS_NAME, 'searchbox_suggestion__csrUQ')
 
     # Constructor:
-    def __init__(self, browser: WebDriver):
+    def __init__(self, browser: WebDriver, get_url):
         # assigning the browser fixture to self
         self.browser = browser
+        self.get_url = get_url
 
     def load(self):
         # for using class variables, we need to use self. --> self.URL
-        self.browser.get(self.URL)
+        self.browser.get(self.get_url)
 
     def search(self, phrase):
         search_input = self.browser.find_element(*self.SEARCH_INPUT)
+        search_input.clear()
         # search_input.send_keys(phrase + Keys.RETURN)
         search_input.send_keys(phrase)
         search_button = self.browser.find_element(*self.SEARCH_BUTTON)

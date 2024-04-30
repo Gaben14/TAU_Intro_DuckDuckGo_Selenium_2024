@@ -7,6 +7,7 @@ name = "pypi"
 selenium = "*"
 pytest = "*"
 pytest-xdist = "*"
+requests = "*"
 
 [dev-packages]
 

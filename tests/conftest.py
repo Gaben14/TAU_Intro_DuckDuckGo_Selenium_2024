@@ -19,10 +19,9 @@ def config(scope='session'):
 
     return config
 
-
 @pytest.fixture
 def browser(config):
-    # Initialize the WebDriver instance
+    # Initialize the WebDriver instance - setUp
     if config['browser'] == 'Firefox':
         b = selenium.webdriver.Firefox()
     elif config['browser'] == 'Chrome':
@@ -40,5 +39,10 @@ def browser(config):
     # Return the WebDriver instance for setup
     yield b
 
-    # Quit the WebDrive instance for the cleanup
+    # Quit the WebDrive instance for the cleanup - tearDown
     b.quit()
+
+@pytest.fixture
+def get_url():
+    URL = "https://www.duckduckgo.com"
+    return URL

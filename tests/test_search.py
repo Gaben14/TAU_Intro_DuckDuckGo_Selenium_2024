@@ -12,8 +12,8 @@ class TestSearch:
     PHRASE = "panda"
 
     # @pytest.mark.parametrize('phrase', ['panda', 'python', 'polar bear'])
-    def test_basic_duckduckgo_search(self, browser):  # phrase
-        search_page = DuckDuckGoSearchPage(browser)
+    def test_basic_duckduckgo_search(self, browser, get_url):  # phrase
+        search_page = DuckDuckGoSearchPage(browser, get_url)
         result_page = DuckDuckGoSearchResult(browser)
 
         # GIVEN the DuckDuckGo home page is displayed
@@ -31,7 +31,7 @@ class TestSearch:
         assert len(matches) > 0
 
         # AND the search result title contains "panda"
-        assert self.PHRASE in result_page.title()
+        assert self.PHRASE in result_page.title().lower()
 
         # AND click on more results:
         result_page.click_on_more_results()
@@ -50,7 +50,7 @@ class TestSearch:
         search_page.click_on_search_result()
 
         # THEN assert search result contains 'Phrase' in title
-        assert self.PHRASE in result_page.title()
+        assert self.PHRASE in result_page.title().lower()
 
     def test_autocomplete_search(self, browser):
         # GIVEN the DuckDuckGo home page is displayed
