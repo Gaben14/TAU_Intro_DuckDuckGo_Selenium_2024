@@ -9,6 +9,10 @@ from pages.search import DuckDuckGoSearchPage
 
 class TestSearch:
     # Class Variable
+    """
+    TODO: for later: move Phrase to an enum class, or the URL should already have the
+    phrase as a query parameter
+    """
     PHRASE = "panda"
 
     # @pytest.mark.parametrize('phrase', ['panda', 'python', 'polar bear'])
@@ -22,6 +26,9 @@ class TestSearch:
         # WHEN the user searches for "panda"
         search_page.search(self.PHRASE)
 
+        # TODO: then_assert_something() or then_input_field_value_is(self.phrase)
+        # TODO: move the asserts to different files and classes later
+        # TODO: Google about moving the asserts to different classes and files.
         # THEN the search result query is "panda"
         assert self.PHRASE == result_page.search_input_value()
 

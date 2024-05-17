@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Created new files for image search. Added Test Case for the Image search.">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Implemented the Image_Size change tests.">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/image_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714399753319</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Implemented the Image_Size change tests.">
+      <option name="closed" value="true" />
+      <created>1714491275235</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714491275236</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +175,7 @@
     <MESSAGE value="Completing:&#10;-search by selecting an auto-complete suggestion" />
     <MESSAGE value="Completing:&#10;- Update test_random_article test case" />
     <MESSAGE value="Created new files for image search. Added Test Case for the Image search." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created new files for image search. Added Test Case for the Image search." />
+    <MESSAGE value="Implemented the Image_Size change tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented the Image_Size change tests." />
   </component>
 </project>
