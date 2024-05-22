@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="The test_image_search.py file has been completed. &#10;Currently it violates the DRY principle multiple times. Next step is to move out the page opening from each test method.">
-      <change afterPath="$PROJECT_DIR$/utils/locators_image.py" afterDir="false" />
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Moving the image_search locators to a new file called locators_image.py.">
+      <change afterPath="$PROJECT_DIR$/pages/video_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_video_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/locators_video.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/image_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/locators_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_image.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715956802829</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Moving the image_search locators to a new file called locators_image.py.">
+      <option name="closed" value="true" />
+      <created>1716393700149</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716393700149</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +197,7 @@
     <MESSAGE value="Created new files for image search. Added Test Case for the Image search." />
     <MESSAGE value="Implemented the Image_Size change tests." />
     <MESSAGE value="The test_image_search.py file has been completed. &#10;Currently it violates the DRY principle multiple times. Next step is to move out the page opening from each test method." />
-    <option name="LAST_COMMIT_MESSAGE" value="The test_image_search.py file has been completed. &#10;Currently it violates the DRY principle multiple times. Next step is to move out the page opening from each test method." />
+    <MESSAGE value="Moving the image_search locators to a new file called locators_image.py." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving the image_search locators to a new file called locators_image.py." />
   </component>
 </project>

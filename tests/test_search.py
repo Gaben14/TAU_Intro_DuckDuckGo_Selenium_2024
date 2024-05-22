@@ -43,8 +43,8 @@ class TestSearch:
         # AND click on more results:
         result_page.click_on_more_results()
 
-    def test_random_article(self, browser):
-        search_page = DuckDuckGoSearchPage(browser)
+    def test_random_article(self, browser, get_url):
+        search_page = DuckDuckGoSearchPage(browser, get_url)
         result_page = DuckDuckGoSearchResult(browser)
 
         # GIVEN the DuckDuckGo home page is displayed
@@ -59,9 +59,9 @@ class TestSearch:
         # THEN assert search result contains 'Phrase' in title
         assert self.PHRASE in result_page.title().lower()
 
-    def test_autocomplete_search(self, browser):
+    def test_autocomplete_search(self, browser, get_url):
         # GIVEN the DuckDuckGo home page is displayed
-        search_page = DuckDuckGoSearchPage(browser)
+        search_page = DuckDuckGoSearchPage(browser, get_url)
 
         search_page.load()
         # WHEN the user searches for "panda"
