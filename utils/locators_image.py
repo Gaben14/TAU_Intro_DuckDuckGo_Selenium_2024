@@ -12,4 +12,6 @@ BLACK_AND_WHITE = (By.CSS_SELECTOR, 'a[data-value="Monochrome"]')
 ALL_TYPES = (By.CLASS_NAME, 'dropdown--type')
 ANIMATED_GIF = (By.CSS_SELECTOR, 'a[data-value="gif"]')
 
+ALL_LICENSES_DROPDOWN = (By.CLASS_NAME, 'dropdown--license')
+FREE_TO_SHARE_AND_USE_LINK = (By.LINK_TEXT, 'Free to Share and Use')
 IMG_RESULTS = (By.CSS_SELECTOR, 'div.tile.tile--img.has-detail')

@@ -120,8 +120,6 @@ class TestImageSearch:
         image_search_page.click_on_item(locators_image.FREE_TO_SHARE_AND_USE_LINK)
 
         # 7.1 - Assert if "Free to Share and Use" is now selected
-        # Ideas: get the child <a> from the <div> -- div[class='dropdown  dropdown--license is-active'] > a
-        # Check if the Text equals to "Free to Share and Use"
         link_in_dropdown = image_search_page.get_child_link_of_dropdown_menu('license')
         assert link_in_dropdown.get_attribute("innerHTML") == "Free to Share and Use"
 
