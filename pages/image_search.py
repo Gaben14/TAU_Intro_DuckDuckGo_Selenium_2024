@@ -3,15 +3,6 @@ This module contains DuckDuckGoImageSearchPage,
 the page object for the DuckDuckGo search page.
 """
 
-"""
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.remote.webdriver import WebDriver
-import random
-
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-"""
-
 from utils import locators_image
 from pages.search import DuckDuckGoSearchPage
 
@@ -24,17 +15,6 @@ class DuckDuckGoImageSearch(DuckDuckGoSearchPage):
         super().__init__(browser, get_url)
 
     # Methods:
-    def click_on_item(self, locator):
-        tab = self.browser.find_element(*locator)
-        tab.click()
-
-    def get_html_css_class_list(self, locator):
-        # Method should take in the selector and just return the class_list
-        html_element = self.browser.find_element(*locator)
-        return html_element.get_attribute("class")
-
-    # TODO:
-
     # TODO: use BDD words before the method names:
     # TODO: when_change_image_size
     def change_image_size(self):
@@ -45,9 +25,10 @@ class DuckDuckGoImageSearch(DuckDuckGoSearchPage):
         image_size_medium.click()
 
     # Get all child items under a dropdown:
+    """
     def get_all_child_items_in_dropdown(self):
         # div.modal--dropdown--color a.modal__list__link
         dropdown_list = self.browser.find_elements(*locators_image.DROPDOWN_LIST)
         for item in dropdown_list:
             print(item)
-
+    """

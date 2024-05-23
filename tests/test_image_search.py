@@ -11,6 +11,7 @@ from tests.conftest import browser, get_url
 
 from utils import locators_image
 
+
 class TestImageSearch:
     """
     Test Case:
@@ -65,6 +66,7 @@ class TestImageSearch:
         assert 'is-selected' in image_size_medium_cls_list
 
     def test_change_color(self, browser, get_url):
+        # TEST: Change from "All Colors" to "Black and white" and validate if color has changed
 
         image_search_page = DuckDuckGoImageSearch(browser, get_url)
         image_search_page.load()
@@ -77,13 +79,12 @@ class TestImageSearch:
         # Click on the 'All Colors' dropdown.
         image_search_page.click_on_item(locators_image.ALL_COLORS_DROPDOWN)
 
-        # TODO: Change from "All Colors" to "Black and white" and validate if color has changed
         image_search_page.click_on_item(locators_image.BLACK_AND_WHITE)
         black_and_white_cls_list = image_search_page.get_html_css_class_list(locators_image.BLACK_AND_WHITE)
         assert 'is-selected' in black_and_white_cls_list
 
     def test_change_type(self, browser, get_url):
-        # TODO: Change from "All Types" to "Animated GIF" and validate if All Types has changed
+        # TEST: Change from "All Types" to "Animated GIF" and validate if All Types has changed
         image_search_page = DuckDuckGoImageSearch(browser, get_url)
         image_search_page.load()
 

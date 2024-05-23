@@ -54,7 +54,7 @@ class TestSearch:
         search_page.search(self.PHRASE)
 
         # AND: Click on search result
-        search_page.click_on_search_result()
+        search_page.click_on_rnd_search_result()
 
         # THEN assert search result contains 'Phrase' in title
         assert self.PHRASE in result_page.title().lower()

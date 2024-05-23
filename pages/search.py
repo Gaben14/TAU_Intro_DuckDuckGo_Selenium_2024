@@ -32,13 +32,27 @@ class DuckDuckGoSearchPage:
         search_button = self.browser.find_element(*locators_search.SEARCH_BUTTON)
         search_button.click()
 
-    def click_on_search_result(self):
+    def click_on_rnd_search_result(self):
         # Click on a random search result, from 1 to 10
         # article#r1-0 (Here the 2nd number can be 0 to 9
         rnd_article = self.browser.find_element(*locators_search.RANDOM_ARTICLE)
         # After you have the random Article,
         # click inside the <a> with data-testid="result-title-a
         rnd_article.click()
+
+    def click_on_item(self, locator):
+        tab = self.browser.find_element(*locator)
+        tab.click()
+
+    def get_html_css_class_list(self, locator):
+        # Method should take in the selector and just return the class_list
+        html_element = self.browser.find_element(*locator)
+        return html_element.get_attribute("class")
+
+    # TODO:
+
+    # TODO: use BDD words before the method names:
+    # TODO: when_change_image_size
 
     def search_autocomplete(self, phrase):
         # Click in the search_input selector and enter a text to search
@@ -56,3 +70,5 @@ class DuckDuckGoSearchPage:
     def click_on_autocomplete_result(self, autocomplete_list):
         # Randomly click on one of the autocomplete suggestion results
         autocomplete_list[locators_search.rnd_num].click()
+
+
