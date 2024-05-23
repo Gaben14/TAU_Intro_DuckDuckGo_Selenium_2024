@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Moving the search locators to a new file called locators_search.py&#10;Updating the locators in locators_search.py">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Moved the &quot;click_on_item()&quot; and &quot;get_html_css_class_list()&quot; to the search.py file.Updated some tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/image_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/locators_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_image.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716396007985</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Moved the &quot;click_on_item()&quot; and &quot;get_html_css_class_list()&quot; to the search.py file.Updated some tests.">
+      <option name="closed" value="true" />
+      <created>1716475821508</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716475821508</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,6 +209,7 @@
     <MESSAGE value="The test_image_search.py file has been completed. &#10;Currently it violates the DRY principle multiple times. Next step is to move out the page opening from each test method." />
     <MESSAGE value="Moving the image_search locators to a new file called locators_image.py." />
     <MESSAGE value="Moving the search locators to a new file called locators_search.py&#10;Updating the locators in locators_search.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving the search locators to a new file called locators_search.py&#10;Updating the locators in locators_search.py" />
+    <MESSAGE value="Moved the &quot;click_on_item()&quot; and &quot;get_html_css_class_list()&quot; to the search.py file.Updated some tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved the &quot;click_on_item()&quot; and &quot;get_html_css_class_list()&quot; to the search.py file.Updated some tests." />
   </component>
 </project>

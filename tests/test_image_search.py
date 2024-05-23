@@ -10,7 +10,7 @@ from pages.search import DuckDuckGoSearchPage
 from tests.conftest import browser, get_url
 
 from utils import locators_image
-
+import time
 
 class TestImageSearch:
     """
@@ -24,7 +24,9 @@ class TestImageSearch:
         5.1 Assert if the color has been changed.
     6. Change the type under the "All types" dropdown to "Animated GIF"
         6.1 Assert if the change has been successful
-    7. Change the "All Licenses" to "Free to Share and Use" - Assert if there are any images after this change.
+    7. Change the "All Licenses" to "Free to Share and Use"
+        7.1 - Assert if "Free to Share and Use" is now selected
+        7.2 - Assert if there are any images / results after this change.
     """
 
     # Class Variables
@@ -98,3 +100,28 @@ class TestImageSearch:
         image_search_page.click_on_item(locators_image.ANIMATED_GIF)
         animated_gif_cls_list = image_search_page.get_html_css_class_list(locators_image.ANIMATED_GIF)
         assert 'is-selected' in animated_gif_cls_list
+
+    def test_change_license(self, browser, get_url):
+        """
+        7. Change the "All Licenses" to "Free to Share and Use"
+            7.1 - Assert if "Free to Share and Use" is now selected
+            7.2 - Assert if there are any images / results after this change.
+        """
+        image_search_page = DuckDuckGoImageSearch(browser, get_url)
+        image_search_page.load()
+
+        # Search for phrase
+        image_search_page.search(self.PHRASE)
+
+        image_search_page.click_on_item(locators_image.IMAGES_TAB)
+
+        image_search_page.click_on_item(locators_image.ALL_LICENSES_DROPDOWN)
+
+        image_search_page.click_on_item(locators_image.FREE_TO_SHARE_AND_USE_LINK)
+
+        # 7.1 - Assert if "Free to Share and Use" is now selected
+        # Ideas: get the child <a> from the <div> -- div[class='dropdown  dropdown--license is-active'] > a
+        # Check if the Text equals to "Free to Share and Use"
+        link_in_dropdown = image_search_page.get_child_link_of_dropdown_menu('license')
+        assert link_in_dropdown.get_attribute("innerHTML") == "Free to Share and Use"
+

@@ -2,6 +2,8 @@
 This module contains DuckDuckGoSearchPage,
 the page object for the DuckDuckGo search page.
 """
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -71,4 +73,12 @@ class DuckDuckGoSearchPage:
         # Randomly click on one of the autocomplete suggestion results
         autocomplete_list[locators_search.rnd_num].click()
 
-
+    def get_child_link_of_dropdown_menu(self, dropdown_name):
+        """
+        For some reason the div[class=""] CSS selector is not working here in Selenium
+        (By.CSS_SELECTOR, 'div[class="dropdown  dropdown--license is-active"] > a')
+        I had to use this solution:
+        dropdown = self.browser.find_element(By.CSS_SELECTOR, f'div.dropdown--{dropdown_name}.is-active')
+        """
+        dropdown_child_a = self.browser.find_element(By.CSS_SELECTOR, f'div.dropdown--{dropdown_name}.is-active > a')
+        return dropdown_child_a
