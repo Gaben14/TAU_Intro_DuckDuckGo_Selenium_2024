@@ -4,7 +4,7 @@ These tests (test cases) cover DuckDuckGo image searches.
 import requests
 
 from pages.image_search import DuckDuckGoImageSearch
-from utils import locators_image
+from utils.locators_image import ImagePageLocators
 
 
 class TestImageSearch:
@@ -39,10 +39,10 @@ class TestImageSearch:
         # Find the search-bar. Enter the phrase.
         image_search_page.search(self.PHRASE)
         # Click on the images tab.
-        image_search_page.click_on_item(locators_image.IMAGES_TAB)
+        image_search_page.click_on_item(ImagePageLocators.IMAGES_TAB)
 
         # Assert that the images tab has been selected. - check if the <a> tag has the is-active class
-        assert 'is-active' in image_search_page.get_html_css_class_list(locators_image.IMAGES_TAB)
+        assert 'is-active' in image_search_page.get_html_css_class_list(ImagePageLocators.IMAGES_TAB)
 
     def test_change_image_size(self, browser):
         # Change the Image Size
@@ -52,10 +52,10 @@ class TestImageSearch:
         # Search for phrase
         image_search_page.search(self.PHRASE)
         # Click on the images tab.
-        image_search_page.click_on_item(locators_image.IMAGES_TAB)
+        image_search_page.click_on_item(ImagePageLocators.IMAGES_TAB)
 
         image_search_page.change_image_size()
-        image_size_medium_cls_list = image_search_page.get_html_css_class_list(locators_image.IMAGE_SIZE_MEDIUM)
+        image_size_medium_cls_list = image_search_page.get_html_css_class_list(ImagePageLocators.IMAGE_SIZE_MEDIUM)
 
         # Assert that the 'is-selected' class can be found on the Image Size Medium Button
         assert 'is-selected' in image_size_medium_cls_list
@@ -68,13 +68,13 @@ class TestImageSearch:
         # Search for phrase
         image_search_page.search(self.PHRASE)
         # Click on the images tab.
-        image_search_page.click_on_item(locators_image.IMAGES_TAB)
+        image_search_page.click_on_item(ImagePageLocators.IMAGES_TAB)
 
         # Click on the 'All Colors' dropdown.
-        image_search_page.click_on_item(locators_image.ALL_COLORS_DROPDOWN)
+        image_search_page.click_on_item(ImagePageLocators.ALL_COLORS_DROPDOWN)
 
-        image_search_page.click_on_item(locators_image.BLACK_AND_WHITE)
-        black_and_white_cls_list = image_search_page.get_html_css_class_list(locators_image.BLACK_AND_WHITE)
+        image_search_page.click_on_item(ImagePageLocators.BLACK_AND_WHITE)
+        black_and_white_cls_list = image_search_page.get_html_css_class_list(ImagePageLocators.BLACK_AND_WHITE)
         assert 'is-selected' in black_and_white_cls_list
 
     def test_change_type(self, browser):
@@ -84,12 +84,12 @@ class TestImageSearch:
         # Search for phrase
         image_search_page.search(self.PHRASE)
         # Click on the images tab.
-        image_search_page.click_on_item(locators_image.IMAGES_TAB)
+        image_search_page.click_on_item(ImagePageLocators.IMAGES_TAB)
 
-        image_search_page.click_on_item(locators_image.ALL_TYPES)
+        image_search_page.click_on_item(ImagePageLocators.ALL_TYPES)
 
-        image_search_page.click_on_item(locators_image.ANIMATED_GIF)
-        animated_gif_cls_list = image_search_page.get_html_css_class_list(locators_image.ANIMATED_GIF)
+        image_search_page.click_on_item(ImagePageLocators.ANIMATED_GIF)
+        animated_gif_cls_list = image_search_page.get_html_css_class_list(ImagePageLocators.ANIMATED_GIF)
         assert 'is-selected' in animated_gif_cls_list
 
     def test_change_license(self, browser):
@@ -103,11 +103,11 @@ class TestImageSearch:
         # Search for phrase
         image_search_page.search(self.PHRASE)
 
-        image_search_page.click_on_item(locators_image.IMAGES_TAB)
+        image_search_page.click_on_item(ImagePageLocators.IMAGES_TAB)
 
-        image_search_page.click_on_item(locators_image.ALL_LICENSES_DROPDOWN)
+        image_search_page.click_on_item(ImagePageLocators.ALL_LICENSES_DROPDOWN)
 
-        image_search_page.click_on_item(locators_image.FREE_TO_SHARE_AND_USE_LINK)
+        image_search_page.click_on_item(ImagePageLocators.FREE_TO_SHARE_AND_USE_LINK)
 
         # 7.1 - Assert if "Free to Share and Use" is now selected
         link_in_dropdown = image_search_page.get_child_link_of_dropdown_menu('license')

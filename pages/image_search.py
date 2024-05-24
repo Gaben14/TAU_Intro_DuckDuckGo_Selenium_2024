@@ -3,7 +3,7 @@ This module contains DuckDuckGoImageSearchPage,
 the page object for the DuckDuckGo search page.
 """
 
-from utils import locators_image
+from utils.locators_image import ImagePageLocators
 from pages.search import DuckDuckGoSearchPage
 
 
@@ -19,13 +19,13 @@ class DuckDuckGoImageSearch(DuckDuckGoSearchPage):
     # TODO: when_change_image_size
     def change_image_size(self):
         # Change the value inside "All sizes" to "Medium"
-        image_size_dropdown = self.browser.find_element(*locators_image.IMAGE_SIZE_DROPDOWN)
+        image_size_dropdown = self.browser.find_element(*ImagePageLocators.IMAGE_SIZE_DROPDOWN)
         image_size_dropdown.click()
-        image_size_medium = self.browser.find_element(*locators_image.IMAGE_SIZE_MEDIUM)
+        image_size_medium = self.browser.find_element(*ImagePageLocators.IMAGE_SIZE_MEDIUM)
         image_size_medium.click()
 
     # Get all image results:
     def get_img_results(self):
-        img_results = self.browser.find_elements(*locators_image.IMG_RESULTS)
+        img_results = self.browser.find_elements(*ImagePageLocators.IMG_RESULTS)
         return len(img_results)
 
