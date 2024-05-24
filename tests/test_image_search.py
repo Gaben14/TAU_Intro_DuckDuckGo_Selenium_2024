@@ -2,15 +2,10 @@
 These tests (test cases) cover DuckDuckGo image searches.
 """
 import requests
-from selenium.webdriver.common.by import By
 
-from pages.result import DuckDuckGoSearchResult
 from pages.image_search import DuckDuckGoImageSearch
-from pages.search import DuckDuckGoSearchPage
-from tests.conftest import browser, get_url
-
 from utils import locators_image
-import time
+
 
 class TestImageSearch:
     """
@@ -32,7 +27,7 @@ class TestImageSearch:
     # Class Variables
     PHRASE = "panda"
 
-    def test_images_tab(self, browser, get_url):
+    def test_images_tab(self, browser):
         """
         response = requests.get()
         # Assert if the page can be pinged successfully - HTTP 200
@@ -40,8 +35,7 @@ class TestImageSearch:
         assert response.status_code == 200
         # TODO: After the response code, wait until an item on the page has loaded
         """
-        image_search_page = DuckDuckGoImageSearch(browser, get_url)
-        image_search_page.load()
+        image_search_page = DuckDuckGoImageSearch(browser)
         # Find the search-bar. Enter the phrase.
         image_search_page.search(self.PHRASE)
         # Click on the images tab.
@@ -50,11 +44,10 @@ class TestImageSearch:
         # Assert that the images tab has been selected. - check if the <a> tag has the is-active class
         assert 'is-active' in image_search_page.get_html_css_class_list(locators_image.IMAGES_TAB)
 
-    def test_change_image_size(self, browser, get_url):
+    def test_change_image_size(self, browser):
         # Change the Image Size
 
-        image_search_page = DuckDuckGoImageSearch(browser, get_url)
-        image_search_page.load()
+        image_search_page = DuckDuckGoImageSearch(browser)
 
         # Search for phrase
         image_search_page.search(self.PHRASE)
@@ -67,11 +60,10 @@ class TestImageSearch:
         # Assert that the 'is-selected' class can be found on the Image Size Medium Button
         assert 'is-selected' in image_size_medium_cls_list
 
-    def test_change_color(self, browser, get_url):
+    def test_change_color(self, browser):
         # TEST: Change from "All Colors" to "Black and white" and validate if color has changed
 
-        image_search_page = DuckDuckGoImageSearch(browser, get_url)
-        image_search_page.load()
+        image_search_page = DuckDuckGoImageSearch(browser)
 
         # Search for phrase
         image_search_page.search(self.PHRASE)
@@ -85,10 +77,9 @@ class TestImageSearch:
         black_and_white_cls_list = image_search_page.get_html_css_class_list(locators_image.BLACK_AND_WHITE)
         assert 'is-selected' in black_and_white_cls_list
 
-    def test_change_type(self, browser, get_url):
+    def test_change_type(self, browser):
         # TEST: Change from "All Types" to "Animated GIF" and validate if All Types has changed
-        image_search_page = DuckDuckGoImageSearch(browser, get_url)
-        image_search_page.load()
+        image_search_page = DuckDuckGoImageSearch(browser)
 
         # Search for phrase
         image_search_page.search(self.PHRASE)
@@ -101,14 +92,13 @@ class TestImageSearch:
         animated_gif_cls_list = image_search_page.get_html_css_class_list(locators_image.ANIMATED_GIF)
         assert 'is-selected' in animated_gif_cls_list
 
-    def test_change_license(self, browser, get_url):
+    def test_change_license(self, browser):
         """
         7. Change the "All Licenses" to "Free to Share and Use"
             7.1 - Assert if "Free to Share and Use" is now selected
             7.2 - Assert if there are any images / results after this change.
         """
-        image_search_page = DuckDuckGoImageSearch(browser, get_url)
-        image_search_page.load()
+        image_search_page = DuckDuckGoImageSearch(browser)
 
         # Search for phrase
         image_search_page.search(self.PHRASE)
@@ -123,3 +113,6 @@ class TestImageSearch:
         link_in_dropdown = image_search_page.get_child_link_of_dropdown_menu('license')
         assert link_in_dropdown.get_attribute("innerHTML") == "Free to Share and Use"
 
+        # 7.2 - Assert if there are any images / results after this change.
+        image_results = image_search_page.get_img_results()
+        assert image_results > 0

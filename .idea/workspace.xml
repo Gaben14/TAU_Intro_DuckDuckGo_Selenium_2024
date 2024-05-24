@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Completing the test_change_licence test method in test_image_search.py. Also added get_child_link_of_dropdown_menu to search.py.&#10;Updated locators_image.py">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Minor locator updates in locators_image.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/image_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/locators_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_image.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716481756033</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Minor locator updates in locators_image.py">
+      <option name="closed" value="true" />
+      <created>1716481811590</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1716481811590</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,6 +231,7 @@
     <MESSAGE value="Moving the search locators to a new file called locators_search.py&#10;Updating the locators in locators_search.py" />
     <MESSAGE value="Moved the &quot;click_on_item()&quot; and &quot;get_html_css_class_list()&quot; to the search.py file.Updated some tests." />
     <MESSAGE value="Completing the test_change_licence test method in test_image_search.py. Also added get_child_link_of_dropdown_menu to search.py.&#10;Updated locators_image.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completing the test_change_licence test method in test_image_search.py. Also added get_child_link_of_dropdown_menu to search.py.&#10;Updated locators_image.py" />
+    <MESSAGE value="Minor locator updates in locators_image.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor locator updates in locators_image.py" />
   </component>
 </project>

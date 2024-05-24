@@ -17,14 +17,9 @@ from utils import locators_search
 class DuckDuckGoSearchPage:
 
     # Constructor:
-    def __init__(self, browser: WebDriver, get_url):
+    def __init__(self, browser: WebDriver):
         # assigning the browser fixture to self
         self.browser = browser
-        self.get_url = get_url
-
-    def load(self):
-        # for using class variables, we need to use self. --> self.URL
-        self.browser.get(self.get_url)
 
     def search(self, phrase):
         search_input = self.browser.find_element(*locators_search.SEARCH_INPUT)

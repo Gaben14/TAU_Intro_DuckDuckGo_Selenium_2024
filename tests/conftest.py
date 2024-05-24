@@ -23,26 +23,28 @@ def config(scope='session'):
 def browser(config):
     # Initialize the WebDriver instance - setUp
     if config['browser'] == 'Firefox':
-        b = selenium.webdriver.Firefox()
+        browser_config = selenium.webdriver.Firefox()
     elif config['browser'] == 'Chrome':
-        b = selenium.webdriver.Chrome()
+        browser_config = selenium.webdriver.Chrome()
     elif config['browser'] == 'Headless Chrome':
         options = selenium.webdriver.ChromeOptions()
         options.add_argument('headless')
-        b = selenium.webdriver.Chrome(options=options)
+        browser_config = selenium.webdriver.Chrome(options=options)
     else:
         raise Exception(f'Browser {config["browser"]} is not supported!')
 
+    # set_up
+    # GIVEN the DuckDuckGo home page is displayed
+    # By calling the .get() here, we avoid of violating the DRY principle in the test cases.
+    browser_config.get(config["base_url"])
+
     # Make its calls wait up to 10 seconds for elements to appear
-    b.implicitly_wait(config["implicit_wait"])
+    browser_config.implicitly_wait(config["implicit_wait"])
 
     # Return the WebDriver instance for setup
-    yield b
+    yield browser_config
 
     # Quit the WebDrive instance for the cleanup - tearDown
-    b.quit()
+    browser_config.quit()
 
-@pytest.fixture
-def get_url():
-    URL = "https://www.duckduckgo.com"
-    return URL
+
