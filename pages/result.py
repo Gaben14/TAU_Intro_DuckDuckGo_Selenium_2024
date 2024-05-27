@@ -20,20 +20,20 @@ class DuckDuckGoSearchResult:
 
     # Interaction Methods
 
-    def result_link_titles(self):
+    def when_user_clicks_on_more_results(self):
+        more_results = self.browser.find_element(*self.MORE_RESULTS)
+        more_results.click()
+
+    def then_get_result_link_titles(self):
         links = self.browser.find_elements(*self.RESULT_LINKS)
         titles = [link.text for link in links]
         return titles
 
-    def search_input_value(self):
+    def then_get_search_input_value(self):
         search_input = self.browser.find_element(*self.SEARCH_INPUT)
         value = search_input.get_attribute('value')
         return value
 
-    def title(self):
+    def then_get_title(self):
         return self.browser.title
-
-    def click_on_more_results(self):
-        more_results = self.browser.find_element(*self.MORE_RESULTS)
-        more_results.click()
 

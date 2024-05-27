@@ -17,7 +17,7 @@ class DuckDuckGoImageSearch(DuckDuckGoSearchPage):
     # Methods:
     # TODO: use BDD words before the method names:
     # TODO: when_change_image_size
-    def change_image_size(self):
+    def when_user_changes_image_size(self):
         # Change the value inside "All sizes" to "Medium"
         image_size_dropdown = self.browser.find_element(*ImagePageLocators.IMAGE_SIZE_DROPDOWN)
         image_size_dropdown.click()
@@ -25,7 +25,7 @@ class DuckDuckGoImageSearch(DuckDuckGoSearchPage):
         image_size_medium.click()
 
     # Get all image results:
-    def get_img_results(self):
+    def then_get_img_results(self):
         img_results = self.browser.find_elements(*ImagePageLocators.IMG_RESULTS)
         return len(img_results)
 
