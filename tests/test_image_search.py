@@ -5,6 +5,7 @@ import requests
 
 from pages.image_search import DuckDuckGoImageSearch
 from utils.locators_image import ImagePageLocators
+from assertions.assert_search import AssertSearch
 
 
 class TestImageSearch:
@@ -41,8 +42,15 @@ class TestImageSearch:
         # Click on the images tab.
         image_search_page.when_user_clicks_on_item(ImagePageLocators.IMAGES_TAB)
 
+        #
+        image_search_page_css_cls_list = image_search_page.then_get_html_css_class_list(ImagePageLocators.IMAGES_TAB)
         # Assert that the images tab has been selected. - check if the <a> tag has the is-active class
-        assert 'is-active' in image_search_page.then_get_html_css_class_list(ImagePageLocators.IMAGES_TAB)
+
+        # Old Assert:
+        # assert 'is-active' in image_search_page_css_cls_list
+
+        # New Assert:
+        AssertSearch.assert_value_in_data_type('is-active', image_search_page_css_cls_list)
 
     def test_change_image_size(self, browser):
         # Change the Image Size
@@ -58,7 +66,9 @@ class TestImageSearch:
         image_size_medium_cls_list = image_search_page.then_get_html_css_class_list(ImagePageLocators.IMAGE_SIZE_MEDIUM)
 
         # Assert that the 'is-selected' class can be found on the Image Size Medium Button
-        assert 'is-selected' in image_size_medium_cls_list
+        # assert 'is-selected' in image_size_medium_cls_list
+
+        AssertSearch.assert_value_in_data_type('is-selected', image_size_medium_cls_list)
 
     def test_change_color(self, browser):
         # TEST: Change from "All Colors" to "Black and white" and validate if color has changed
@@ -75,7 +85,9 @@ class TestImageSearch:
 
         image_search_page.when_user_clicks_on_item(ImagePageLocators.BLACK_AND_WHITE)
         black_and_white_cls_list = image_search_page.then_get_html_css_class_list(ImagePageLocators.BLACK_AND_WHITE)
-        assert 'is-selected' in black_and_white_cls_list
+
+        # assert 'is-selected' in black_and_white_cls_list
+        AssertSearch.assert_value_in_data_type('is-selected', black_and_white_cls_list)
 
     def test_change_type(self, browser):
         # TEST: Change from "All Types" to "Animated GIF" and validate if All Types has changed
@@ -90,7 +102,9 @@ class TestImageSearch:
 
         image_search_page.when_user_clicks_on_item(ImagePageLocators.ANIMATED_GIF)
         animated_gif_cls_list = image_search_page.then_get_html_css_class_list(ImagePageLocators.ANIMATED_GIF)
-        assert 'is-selected' in animated_gif_cls_list
+
+        # assert 'is-selected' in animated_gif_cls_list
+        AssertSearch.assert_value_in_data_type('is-selected', animated_gif_cls_list)
 
     def test_change_license(self, browser):
         """
@@ -110,9 +124,13 @@ class TestImageSearch:
         image_search_page.when_user_clicks_on_item(ImagePageLocators.FREE_TO_SHARE_AND_USE_LINK)
 
         # 7.1 - Assert if "Free to Share and Use" is now selected
-        link_in_dropdown = image_search_page.then_get_child_link_of_dropdown_menu('license')
-        assert link_in_dropdown.get_attribute("innerHTML") == "Free to Share and Use"
+        link_in_dropdown_innerHTML = image_search_page.then_get_child_link_of_dropdown_menu('license').get_attribute("innerHTML")
+
+        # assert link_in_dropdown.get_attribute("innerHTML") == "Free to Share and Use"
+        AssertSearch.assert_variable_is_equal_to_variable(link_in_dropdown_innerHTML, "Free to Share and Use")
 
         # 7.2 - Assert if there are any images / results after this change.
         image_results = image_search_page.then_get_img_results()
-        assert image_results > 0
+
+        # assert image_results > 0
+        AssertSearch.assert_search_result_is_greater_as_0(image_results)

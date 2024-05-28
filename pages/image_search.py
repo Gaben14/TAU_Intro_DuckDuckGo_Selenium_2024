@@ -1,6 +1,6 @@
 """
 This module contains DuckDuckGoImageSearchPage,
-the page object for the DuckDuckGo search page.
+the page object for the DuckDuckGo Image search page.
 """
 
 from utils.locators_image import ImagePageLocators
@@ -14,9 +14,8 @@ class DuckDuckGoImageSearch(DuckDuckGoSearchPage):
         # Call the __init__ of parent:
         super().__init__(browser)
 
-    # Methods:
-    # TODO: use BDD words before the method names:
-    # TODO: when_change_image_size
+    # Methods, use BDD words before the method names:
+    # Example: when_change_image_size
     def when_user_changes_image_size(self):
         # Change the value inside "All sizes" to "Medium"
         image_size_dropdown = self.browser.find_element(*ImagePageLocators.IMAGE_SIZE_DROPDOWN)

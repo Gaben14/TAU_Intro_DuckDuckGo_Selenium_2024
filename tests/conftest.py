@@ -19,6 +19,8 @@ def config(scope='session'):
 
     return config
 
+
+# GIVEN the DuckDuckGo home page is displayed
 @pytest.fixture
 def browser(config):
     # Initialize the WebDriver instance - setUp
@@ -46,5 +48,3 @@ def browser(config):
 
     # Quit the WebDrive instance for the cleanup - tearDown
     browser_config.quit()
-
-
