@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Refactored the names of the class methods to BDD structure for better visibility and understanding.">
-      <change afterPath="$PROJECT_DIR$/assertions/assert_image_search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assertions/assert_search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assertions/assert_video_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/image_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/video_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/video_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_video_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_video_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/locators_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/locators_video.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_video.py" afterDir="false" />
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Moved the Assertions to the assert_search.py file. Also replaced the Asserts in each test_ file.">
+      <change beforePath="$PROJECT_DIR$/assertions/assert_image_search.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assertions/assert_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/assertions/assert_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assertions/assert_video_search.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716824414282</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Moved the Assertions to the assert_search.py file. Also replaced the Asserts in each test_ file.">
+      <option name="closed" value="true" />
+      <created>1716910547832</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716910547832</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +262,7 @@
     <MESSAGE value="Removing .load() method from the test methods and also removing get_url() and load() from the conftest.py file. Adding the get() to the browser() fixture. Finishing the test_change_licenses test method." />
     <MESSAGE value="Refactored the locator files, created locator classes and used them in test files." />
     <MESSAGE value="Refactored the names of the class methods to BDD structure for better visibility and understanding." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored the names of the class methods to BDD structure for better visibility and understanding." />
+    <MESSAGE value="Moved the Assertions to the assert_search.py file. Also replaced the Asserts in each test_ file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved the Assertions to the assert_search.py file. Also replaced the Asserts in each test_ file." />
   </component>
 </project>

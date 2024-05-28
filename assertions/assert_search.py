@@ -1,5 +1,5 @@
 class AssertSearch:
-
+    # TODO: Review if the then_assert should be used instead of assert in method names?
     @staticmethod
     def assert_value_in_data_type(value, data_type):
         assert value in data_type
