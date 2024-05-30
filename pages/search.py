@@ -39,8 +39,8 @@ class DuckDuckGoSearchPage:
         rnd_article.click()
 
     def when_user_clicks_on_item(self, locator):
-        tab = self.browser.find_element(*locator)
-        tab.click()
+        html_element = self.browser.find_element(*locator)
+        html_element.click()
 
     def when_user_enters_phrase_in_search_autocomplete(self, phrase):
         # Click in the search_input selector and enter a text to search
@@ -55,10 +55,10 @@ class DuckDuckGoSearchPage:
 
         return autocomplete_suggestions_li
 
-    def then_get_html_css_class_list(self, locator):
+    def then_get_attribute_for_item(self, locator, attribute):
         # Method should take in the selector and just return the class_list
         html_element = self.browser.find_element(*locator)
-        return html_element.get_attribute("class")
+        return html_element.get_attribute(attribute)
 
     def then_click_on_autocomplete_result(self, autocomplete_list):
         # Randomly click on one of the autocomplete suggestion results

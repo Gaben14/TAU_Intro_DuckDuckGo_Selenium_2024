@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
-from utils.locators_search import SearchPageLocators
 
 
-class ImagePageLocators(SearchPageLocators):
+class ImagePageLocators:
     # Locators:  all letters as uppercase
     IMAGES_TAB = (By.CSS_SELECTOR, 'a[data-testid="tab-label-images"]')
     IMAGE_SIZE_DROPDOWN = (By.CLASS_NAME, 'dropdown--size')
