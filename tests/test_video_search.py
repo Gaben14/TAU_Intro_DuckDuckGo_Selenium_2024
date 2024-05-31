@@ -1,6 +1,9 @@
 """
 These tests (test cases) cover DuckDuckGo video searches.
 """
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from assertions.assert_search import AssertSearch
 from pages.video_search import DuckDuckGoVideoSearch
 from utils.locators_video import VideoPageLocators
@@ -175,8 +178,43 @@ class TestVideoSearch:
             VideoPageLocators.VIDEO_LICENSE_DROPDOWN_OPTIONS)
         video_lic_dd_options[rd_lic_index].click()
 
+        # TODO later: move the random to a seperate function / method?
+
         # Assert if there are any results after these changes
         video_results = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_SEARCH_RESULTS)
 
         AssertSearch.assert_search_result_is_greater_as_0(len(video_results))
+
+    def test_open_result_in_new_tab(self, browser):
+        video_search_page = DuckDuckGoVideoSearch(browser)
+
+        # Find the search-bar. Enter the phrase
+        video_search_page.when_user_searches(self.PHRASE)
+
+        # Click on the Videos tab
+        video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_TAB)
+
+        # Get All Results and open it in a new browser tab:
+        video_link_results = video_search_page.then_get_all_child_items(
+            VideoPageLocators.VIDEO_SEARCH_RESULTS_LINK)
+
+        video_rnd_index = random.randint(0,29)
+        # Idea 1: Inside the Video Result, get the attribute for the href, use that href value
+        # to open a new browser tab
+        video_result_href = video_link_results[video_rnd_index].get_attribute("href")
+
+        browser.execute_script("window.open('about:blank','secondtab');")
+        browser.switch_to.window("secondtab")
+        browser.get(video_result_href)
+
+        # Wait for the "Accept All" button to become visible
+        accept_all_settings = WebDriverWait(browser, 15).until(
+            EC.presence_of_element_located(VideoPageLocators.YOUTUBE_ACCEPT_ALL_BTN)
+        )
+        accept_all_settings.click()
+
+        # Assert in the new tab that title contains the PHRASE
+        second_tab_title = browser.title
+
+        AssertSearch.assert_value_in_data_type(self.PHRASE, second_tab_title)

@@ -23,7 +23,10 @@ class VideoPageLocators:
     YOUTUBE_STANDARD_LINK = (By.CSS_SELECTOR, 'a[data-value="youtube"]')
     VIDEO_LICENSE_DROPDOWN_CHILD_LINK = (By.CSS_SELECTOR, 'div.dropdown--videoLicense > a')
 
-    VIDEO_SEARCH_RESULTS = (By.CLASS_NAME, "tile--vid")
+    VIDEO_SEARCH_RESULTS = (By.CLASS_NAME, 'tile--vid')
+    VIDEO_SEARCH_RESULTS_LINK = (By.CSS_SELECTOR, 'div.tile--vid h6 a')
+
+    YOUTUBE_ACCEPT_ALL_BTN = (By.CSS_SELECTOR, 'button[aria-label="Accept the use of cookies and other data for the purposes described"]')
     # TODO: refactor the child_link locators into a class method, where you get
     # the child <a> tag of the menu dropdown after reload.
     # Parameter should be the dropdown type: videoDuration, videoLicense, videoDefinition
