@@ -3,13 +3,14 @@ This module contains DuckDuckGoSearchPage,
 the page object for the DuckDuckGo search page.
 """
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webdriver import WebDriver
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from utils.locators_search import SearchPageLocators
+
+import random
 
 
 class DuckDuckGoSearchPage:
@@ -73,3 +74,6 @@ class DuckDuckGoSearchPage:
         """
         dropdown_child_a = self.browser.find_element(By.CSS_SELECTOR, f'div.dropdown--{dropdown_name}.is-active > a')
         return dropdown_child_a
+
+    def then_get_rnd_number(self, num_1, num_2):
+        return random.randint(num_1, num_2)

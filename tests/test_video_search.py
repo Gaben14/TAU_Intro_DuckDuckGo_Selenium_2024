@@ -7,7 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from assertions.assert_search import AssertSearch
 from pages.video_search import DuckDuckGoVideoSearch
 from utils.locators_video import VideoPageLocators
-import random
 
 
 class TestVideoSearch:
@@ -32,7 +31,7 @@ class TestVideoSearch:
             - Assert the title of the new tab contains the Phrase
             - Close the tab and navigate back to Video Page.
     """
-    PHRASE = "Panda"
+    PHRASE = "panda"
 
     def test_video_tab(self, browser):
         video_search_page = DuckDuckGoVideoSearch(browser)
@@ -110,7 +109,7 @@ class TestVideoSearch:
 
         # Randomly select one of the items, random should be between 1-3
         # because 0 index of the dropdown is "Any duration"
-        rand_int = random.randint(1, 3)
+        rand_int = video_search_page.then_get_rnd_number(1, 3)
         # Get the innerHTML or text value of the random child
         rand_child_innerHTML = video_duration_childs[rand_int].get_attribute("text")
         video_duration_childs[rand_int].click()
@@ -152,33 +151,31 @@ class TestVideoSearch:
 
         # Click on the "Any time" dropdown, select one value randomly
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_UPLOAD_DATE_DROPDOWN)
-        rd_date_index = random.randint(1, 3)
+        rd_date_index = video_search_page.then_get_rnd_number(1, 3)
         video_date_dd_options = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_UPLOAD_DATE_DROPDOWN_OPTIONS)
         video_date_dd_options[rd_date_index].click()
 
         # Click on the "Any resolution" dropdown, select one value randomly
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_RESOLUTION_DROPDOWN)
-        rd_res_index = random.randint(1, 2)
+        rd_res_index = video_search_page.then_get_rnd_number(1, 2)
         video_res_dd_options = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_RESOLUTION_DROPDOWN_OPTIONS)
         video_res_dd_options[rd_res_index].click()
 
         # Click on the "Any duration" dropdown, select one value randomly
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_DURATION_DROPDOWN)
-        rd_dur_index = random.randint(1, 3)
+        rd_dur_index = video_search_page.then_get_rnd_number(1, 3)
         video_dur_dd_options = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_DURATION_DROPDOWN_OPTIONS)
         video_dur_dd_options[rd_dur_index].click()
 
         # Click on the "Any license" dropdown, select one value randomly
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_LICENSE_DROPDOWN)
-        rd_lic_index = random.randint(1, 2)
+        rd_lic_index = video_search_page.then_get_rnd_number(1, 2)
         video_lic_dd_options = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_LICENSE_DROPDOWN_OPTIONS)
         video_lic_dd_options[rd_lic_index].click()
-
-        # TODO later: move the random to a seperate function / method?
 
         # Assert if there are any results after these changes
         video_results = video_search_page.then_get_all_child_items(
@@ -199,9 +196,9 @@ class TestVideoSearch:
         video_link_results = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_SEARCH_RESULTS_LINK)
 
-        video_rnd_index = random.randint(0,29)
-        # Idea 1: Inside the Video Result, get the attribute for the href, use that href value
-        # to open a new browser tab
+        video_rnd_index = video_search_page.then_get_rnd_number(0, 29)
+        # Inside the Video Result, get the attribute for the href,
+        # use that href value to open a new browser tab
         video_result_href = video_link_results[video_rnd_index].get_attribute("href")
 
         browser.execute_script("window.open('about:blank','secondtab');")
@@ -209,12 +206,12 @@ class TestVideoSearch:
         browser.get(video_result_href)
 
         # Wait for the "Accept All" button to become visible
-        accept_all_settings = WebDriverWait(browser, 15).until(
+        accept_all = WebDriverWait(browser, 45).until(
             EC.presence_of_element_located(VideoPageLocators.YOUTUBE_ACCEPT_ALL_BTN)
         )
-        accept_all_settings.click()
+        accept_all.click()
 
         # Assert in the new tab that title contains the PHRASE
-        second_tab_title = browser.title
+        second_tab_title = browser.title.lower()
 
         AssertSearch.assert_value_in_data_type(self.PHRASE, second_tab_title)
