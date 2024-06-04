@@ -6,6 +6,8 @@ import pytest
 from pages.result import DuckDuckGoSearchResult
 from pages.search import DuckDuckGoSearchPage
 from assertions.assert_search import AssertSearch
+from utils.locators_search import SearchPageLocators
+
 
 class TestSearch:
     # Class Variable
@@ -41,6 +43,81 @@ class TestSearch:
 
         # AND click on more results:
         result_page.when_user_clicks_on_more_results()
+
+    def test_duckduckgo_search_settings(self, browser):
+        search_page = DuckDuckGoSearchPage(browser)
+
+        search_page.when_user_searches(self.PHRASE)
+
+        # Click on the "Settings" button
+        search_page.when_user_clicks_on_item(SearchPageLocators.SETTINGS_LINK)
+
+        # Change to Dark Mode, by clicking on the div[data-theme-id="d"]
+        search_page.when_user_clicks_on_item(SearchPageLocators.DARK_MODE)
+        # Assert that the label has the is-checked class
+        dark_mode_label_classes = browser.find_element(*SearchPageLocators.DARK_MODE_LABEL).get_attribute("class")
+        AssertSearch.assert_value_in_data_type('is-checked', dark_mode_label_classes)
+
+        # Click on the Font Size dropdown
+        search_page.when_user_clicks_on_item(SearchPageLocators.FONT_SIZE_DROPDOWN)
+        # Change to a random font size
+        font_size_childs_options = browser.find_elements(*SearchPageLocators.FONT_SIZE_DROPDOWN_OPTIONS)
+        print(font_size_childs_options)
+        rd_font_size_index = search_page.then_get_rnd_number(0, 4)
+        font_size_childs_options[rd_font_size_index].click()
+
+        # Click on the Font dropdown
+        search_page.when_user_clicks_on_item(SearchPageLocators.FONT_FAMILY_DROPDOWN)
+        # Change to a random Font
+        font_family_childs_options = browser.find_elements(*SearchPageLocators.FONT_FAMILY_DROPDOWN_OPTIONS)
+        rd_font_family_index = search_page.then_get_rnd_number(0, 13)
+        font_family_childs_options[rd_font_family_index].click()
+
+        # Click on the Display Language dropdown
+        search_page.when_user_clicks_on_item(SearchPageLocators.LANGUAGE_DROPDOWN)
+        # Change the value to "Hungarian"
+        search_page.when_user_clicks_on_item(SearchPageLocators.LANGUAGE_HUNGARIAN)
+
+        # Click again on the Settings:
+        search_page.when_user_clicks_on_item(SearchPageLocators.SETTINGS_LINK)
+
+        # Click on the Infinite Scroll flipper
+        search_page.when_user_clicks_on_item(SearchPageLocators.INFINITY_SCROLL_TOGGLE)
+        # Assert that the grandparent div of label[for="setting_kav"]
+        # has the "is-checked" class
+        infinity_scroll_gparent_cls_list = search_page.then_get_attribute_for_item(
+            SearchPageLocators.INFINITY_SCROLL_GPARENT, "class")
+        AssertSearch.assert_value_in_data_type('is-checked', infinity_scroll_gparent_cls_list)
+
+        # Click on the Open Links in a New Tab flipper, it should be turned on
+        search_page.when_user_clicks_on_item(SearchPageLocators.OPEN_LINKS_TOGGLE)
+        open_new_gparent_cls_list = search_page.then_get_attribute_for_item(
+            SearchPageLocators.OPEN_LINKS_TOGGLE, "class")
+
+        # Assert that  the div.frm__field (grandparent) of Open New has the
+        # is-checked class
+        AssertSearch.assert_value_in_data_type('is-checked', open_new_gparent_cls_list)
+
+        # Click on the Reset buttons
+        search_page.when_user_clicks_on_item(SearchPageLocators.APPEARANCE_RESET_LINK)
+        search_page.when_user_clicks_on_item(SearchPageLocators.GENERAL_RESET_LINK)
+
+        # Assert that Light Mode Label has the "is-checked" class
+        light_mode_label_cls_list = (browser.find_element(SearchPageLocators.LIGHT_MODE_LABEL).
+                                     get_attribute("class"))
+        AssertSearch.assert_value_in_data_type('is-checked', light_mode_label_cls_list)
+
+        # Assert that the grandparent div of Infinity Scroll
+        # does not have the "is-checked" class
+        infinity_scroll_gparent_cls_list = (browser.find_element(SearchPageLocators.INFINITY_SCROLL_GPARENT).
+                                            get_attribute("class"))
+        AssertSearch.assert_value_not_in_data_type('is-checked', infinity_scroll_gparent_cls_list)
+
+        # Assert that grandparent of Open New Tab
+        # does not have the is-checked class
+        open_new_gparent_cls_list = (browser.find_element(SearchPageLocators.OPEN_LINKS_TOGGLE).
+                                     get_attribute("class"))
+        AssertSearch.assert_value_not_in_data_type('is-checked',open_new_gparent_cls_list)
 
     def test_random_article(self, browser):
         search_page = DuckDuckGoSearchPage(browser)

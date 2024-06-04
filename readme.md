@@ -1,6 +1,8 @@
 ## Test Cases:
 
 - :white_check_mark:  search for different phrases 
+- IN PROGRESS change settings
+- change region
 - :white_check_mark:  search by clicking the button instead of typing RETURN
 - :white_check_mark:  click a search result
 - :white_check_mark:  expand "More Results" at the bottom of the result page
@@ -8,7 +10,5 @@
 - :white_check_mark:  search by selecting an auto-complete suggestion
 - :white_check_mark:  search a new phrase from the results page
 - :white_check_mark:  do an image search
-- IN PROGRESS -- do a video search
-- do a news search
-- change settings
-- change region
+- :white_check_mark: do a video search
+

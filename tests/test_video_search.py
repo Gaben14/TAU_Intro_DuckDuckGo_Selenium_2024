@@ -206,7 +206,7 @@ class TestVideoSearch:
         browser.get(video_result_href)
 
         # Wait for the "Accept All" button to become visible
-        accept_all = WebDriverWait(browser, 45).until(
+        accept_all = WebDriverWait(browser, 15).until(
             EC.presence_of_element_located(VideoPageLocators.YOUTUBE_ACCEPT_ALL_BTN)
         )
         accept_all.click()
