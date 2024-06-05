@@ -2,6 +2,7 @@
 These tests (test cases) cover DuckDuckGo searches.
 """
 import pytest
+from selenium.webdriver import Keys
 
 from pages.result import DuckDuckGoSearchResult
 from pages.search import DuckDuckGoSearchPage
@@ -45,6 +46,41 @@ class TestSearch:
 
         # AND click on more results:
         result_page.when_user_clicks_on_more_results()
+
+    def test_duckduckgo_regions_settings(self, browser):
+        search_page = DuckDuckGoSearchPage(browser)
+
+        search_page.when_user_searches(self.PHRASE)
+
+        # Click on "All regions" dropdown
+        regions_filter_dropdown = WebDriverWait(browser, 10).until(
+            EC.presence_of_element_located(SearchPageLocators.REGIONS_DROPDOWN_DIV_INACTIVE)
+        )
+        regions_filter_dropdown.click()
+
+        # Get a random regions Text
+        regions_list = browser.find_elements(*SearchPageLocators.REGIONS_LI)
+
+        rd_regions_index = search_page.then_get_rnd_number(0, len(regions_list))
+        rd_regions_text = regions_list[rd_regions_index].get_attribute("text")
+
+        # Enter the random regions value in the region filter input field
+        regions_filter_input = browser.find_element(*SearchPageLocators.REGIONS_FILTER_INPUT)
+        regions_filter_input.clear()
+        regions_filter_input.send_keys(rd_regions_text + Keys.RETURN)
+
+        # Assert that the div.dropdown--region has the value 'is-active'
+        regions_dd_div_cls_list = search_page.then_get_attribute_for_item(
+            SearchPageLocators.REGIONS_DROPDOWN_DIV, 'class')
+
+        AssertSearch.assert_value_in_data_type('is-active', regions_dd_div_cls_list)
+
+        # Assert that the innerHTML of REGIONS_DROPDOWN_LINK innerhtml is the same
+        # as for the random value.
+        regions_dd_link_text = search_page.then_get_attribute_for_item(
+            SearchPageLocators.REGIONS_DROPDOWN_LINK, "text")
+
+        AssertSearch.assert_variable_is_equal_to_variable(rd_regions_text, regions_dd_link_text)
 
     def test_duckduckgo_search_settings(self, browser):
         search_page = DuckDuckGoSearchPage(browser)

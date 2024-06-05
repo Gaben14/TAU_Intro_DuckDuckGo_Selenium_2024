@@ -2,7 +2,7 @@
 
 - :white_check_mark:  search for different phrases 
 - :white_check_mark: change settings
-- IN PROGRESS change region
+- :white_check_mark: change region
 - :white_check_mark:  search by clicking the button instead of typing RETURN
 - :white_check_mark:  click a search result
 - :white_check_mark:  expand "More Results" at the bottom of the result page

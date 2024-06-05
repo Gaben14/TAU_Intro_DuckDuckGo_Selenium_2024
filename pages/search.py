@@ -21,9 +21,6 @@ class DuckDuckGoSearchPage:
         # assigning the browser fixture to self
         self.browser = browser
 
-    # TODO: use BDD words before the method names:
-    # TODO: when_change_image_size
-
     def when_user_searches(self, phrase):
         search_input = self.browser.find_element(*SearchPageLocators.SEARCH_INPUT)
         search_input.clear()
@@ -56,9 +53,6 @@ class DuckDuckGoSearchPage:
         autocomplete_suggestions_li = self.browser.find_elements(*SearchPageLocators.AUTOCOMPLETE_SUGGESTIONS_LI)
 
         return autocomplete_suggestions_li
-
-    def when_user_changes_region(self, locator):
-
 
     def then_get_attribute_for_item(self, locator, attribute):
         # Method should take in the selector and just return the class_list
