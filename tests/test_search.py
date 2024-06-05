@@ -8,6 +8,8 @@ from pages.search import DuckDuckGoSearchPage
 from assertions.assert_search import AssertSearch
 from utils.locators_search import SearchPageLocators
 
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 class TestSearch:
     # Class Variable
@@ -62,7 +64,6 @@ class TestSearch:
         search_page.when_user_clicks_on_item(SearchPageLocators.FONT_SIZE_DROPDOWN)
         # Change to a random font size
         font_size_childs_options = browser.find_elements(*SearchPageLocators.FONT_SIZE_DROPDOWN_OPTIONS)
-        print(font_size_childs_options)
         rd_font_size_index = search_page.then_get_rnd_number(0, 4)
         font_size_childs_options[rd_font_size_index].click()
 
@@ -83,16 +84,18 @@ class TestSearch:
 
         # Click on the Infinite Scroll flipper
         search_page.when_user_clicks_on_item(SearchPageLocators.INFINITY_SCROLL_TOGGLE)
+
         # Assert that the grandparent div of label[for="setting_kav"]
         # has the "is-checked" class
-        infinity_scroll_gparent_cls_list = search_page.then_get_attribute_for_item(
-            SearchPageLocators.INFINITY_SCROLL_GPARENT, "class")
-        AssertSearch.assert_value_in_data_type('is-checked', infinity_scroll_gparent_cls_list)
+        inf_scroll_gparent_cls_list = search_page.then_get_attribute_for_item(
+            SearchPageLocators.INFINITY_SCROLL_GPARENT_DIV, "class")
+
+        AssertSearch.assert_value_in_data_type('is-checked', inf_scroll_gparent_cls_list)
 
         # Click on the Open Links in a New Tab flipper, it should be turned on
         search_page.when_user_clicks_on_item(SearchPageLocators.OPEN_LINKS_TOGGLE)
         open_new_gparent_cls_list = search_page.then_get_attribute_for_item(
-            SearchPageLocators.OPEN_LINKS_TOGGLE, "class")
+            SearchPageLocators.OPEN_LINKS_GPARENT_DIV, "class")
 
         # Assert that  the div.frm__field (grandparent) of Open New has the
         # is-checked class
@@ -102,22 +105,25 @@ class TestSearch:
         search_page.when_user_clicks_on_item(SearchPageLocators.APPEARANCE_RESET_LINK)
         search_page.when_user_clicks_on_item(SearchPageLocators.GENERAL_RESET_LINK)
 
+        # Again click on the Settings
+        search_page.when_user_clicks_on_item(SearchPageLocators.SETTINGS_LINK)
+
         # Assert that Light Mode Label has the "is-checked" class
-        light_mode_label_cls_list = (browser.find_element(SearchPageLocators.LIGHT_MODE_LABEL).
-                                     get_attribute("class"))
+        light_mode_label_cls_list = search_page.then_get_attribute_for_item(
+            SearchPageLocators.LIGHT_MODE_LABEL, "class")
         AssertSearch.assert_value_in_data_type('is-checked', light_mode_label_cls_list)
 
         # Assert that the grandparent div of Infinity Scroll
         # does not have the "is-checked" class
-        infinity_scroll_gparent_cls_list = (browser.find_element(SearchPageLocators.INFINITY_SCROLL_GPARENT).
-                                            get_attribute("class"))
-        AssertSearch.assert_value_not_in_data_type('is-checked', infinity_scroll_gparent_cls_list)
+        inf_scroll_gparent_cls_list = search_page.then_get_attribute_for_item(
+            SearchPageLocators.INFINITY_SCROLL_GPARENT_DIV, "class")
+        AssertSearch.assert_value_not_in_data_type('is-checked', inf_scroll_gparent_cls_list)
 
         # Assert that grandparent of Open New Tab
         # does not have the is-checked class
-        open_new_gparent_cls_list = (browser.find_element(SearchPageLocators.OPEN_LINKS_TOGGLE).
-                                     get_attribute("class"))
-        AssertSearch.assert_value_not_in_data_type('is-checked',open_new_gparent_cls_list)
+        open_new_gparent_cls_list = search_page.then_get_attribute_for_item(
+            SearchPageLocators.OPEN_LINKS_GPARENT_DIV, "class")
+        AssertSearch.assert_value_not_in_data_type('is-checked', open_new_gparent_cls_list)
 
     def test_random_article(self, browser):
         search_page = DuckDuckGoSearchPage(browser)

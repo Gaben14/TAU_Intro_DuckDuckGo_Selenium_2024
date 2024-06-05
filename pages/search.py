@@ -57,6 +57,9 @@ class DuckDuckGoSearchPage:
 
         return autocomplete_suggestions_li
 
+    def when_user_changes_region(self, locator):
+
+
     def then_get_attribute_for_item(self, locator, attribute):
         # Method should take in the selector and just return the class_list
         html_element = self.browser.find_element(*locator)
