@@ -1,3 +1,6 @@
+Extending the test cases at the https://testautomationu.applitools.com/selenium-webdriver-python-tutorial/
+with my own Test Cases.
+
 ## Test Cases:
 
 - :white_check_mark:  search for different phrases 
