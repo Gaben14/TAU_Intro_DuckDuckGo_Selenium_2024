@@ -69,13 +69,13 @@ class TestSearch:
         regions_filter_input.clear()
         regions_filter_input.send_keys(rd_regions_text + Keys.RETURN)
 
-        # Assert that the div.dropdown--region has the value 'is-active'
+        # Assert that the Region DropDown class has the value 'is-active'
         regions_dd_div_cls_list = search_page.then_get_attribute_for_item(
             SearchPageLocators.REGIONS_DROPDOWN_DIV, 'class')
 
         AssertSearch.assert_value_in_data_type('is-active', regions_dd_div_cls_list)
 
-        # Assert that the innerHTML of REGIONS_DROPDOWN_LINK innerhtml is the same
+        # Assert that the text of REGIONS_DROPDOWN_LINK is the same
         # as for the random value.
         regions_dd_link_text = search_page.then_get_attribute_for_item(
             SearchPageLocators.REGIONS_DROPDOWN_LINK, "text")
@@ -100,14 +100,14 @@ class TestSearch:
         search_page.when_user_clicks_on_item(SearchPageLocators.FONT_SIZE_DROPDOWN)
         # Change to a random font size
         font_size_childs_options = browser.find_elements(*SearchPageLocators.FONT_SIZE_DROPDOWN_OPTIONS)
-        rd_font_size_index = search_page.then_get_rnd_number(0, 4)
+        rd_font_size_index = search_page.then_get_rnd_number(0, len(font_size_childs_options))
         font_size_childs_options[rd_font_size_index].click()
 
         # Click on the Font dropdown
         search_page.when_user_clicks_on_item(SearchPageLocators.FONT_FAMILY_DROPDOWN)
         # Change to a random Font
         font_family_childs_options = browser.find_elements(*SearchPageLocators.FONT_FAMILY_DROPDOWN_OPTIONS)
-        rd_font_family_index = search_page.then_get_rnd_number(0, 13)
+        rd_font_family_index = search_page.then_get_rnd_number(0, len(font_family_childs_options))
         font_family_childs_options[rd_font_family_index].click()
 
         # Click on the Display Language dropdown

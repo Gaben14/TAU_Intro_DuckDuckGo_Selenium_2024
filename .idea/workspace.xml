@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Finished Search settings, implementing when_user_changes_region">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Finished when_user_changes_region">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_video_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_video_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/locators_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -283,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717592153869</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Finished when_user_changes_region">
+      <option name="closed" value="true" />
+      <created>1717598330286</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1717598330286</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,7 +307,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Chapter 5 completed." />
     <MESSAGE value="Chapter 6 completed." />
     <MESSAGE value="Chapter 7 completed." />
     <MESSAGE value="Chapter 8 completed." />
@@ -323,6 +331,7 @@
     <MESSAGE value="Finished the video search test cases." />
     <MESSAGE value="Started the Search Settings test case: test_duckduckgo_search_settings" />
     <MESSAGE value="Finished Search settings, implementing when_user_changes_region" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Search settings, implementing when_user_changes_region" />
+    <MESSAGE value="Finished when_user_changes_region" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished when_user_changes_region" />
   </component>
 </project>

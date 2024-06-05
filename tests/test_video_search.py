@@ -109,7 +109,7 @@ class TestVideoSearch:
 
         # Randomly select one of the items, random should be between 1-3
         # because 0 index of the dropdown is "Any duration"
-        rand_int = video_search_page.then_get_rnd_number(1, 3)
+        rand_int = video_search_page.then_get_rnd_number(1, len(video_duration_childs))
         # Get the innerHTML or text value of the random child
         rand_child_innerHTML = video_duration_childs[rand_int].get_attribute("text")
         video_duration_childs[rand_int].click()
@@ -151,30 +151,30 @@ class TestVideoSearch:
 
         # Click on the "Any time" dropdown, select one value randomly
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_UPLOAD_DATE_DROPDOWN)
-        rd_date_index = video_search_page.then_get_rnd_number(1, 3)
         video_date_dd_options = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_UPLOAD_DATE_DROPDOWN_OPTIONS)
+        rd_date_index = video_search_page.then_get_rnd_number(1, len(video_date_dd_options))
         video_date_dd_options[rd_date_index].click()
 
         # Click on the "Any resolution" dropdown, select one value randomly
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_RESOLUTION_DROPDOWN)
-        rd_res_index = video_search_page.then_get_rnd_number(1, 2)
         video_res_dd_options = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_RESOLUTION_DROPDOWN_OPTIONS)
+        rd_res_index = video_search_page.then_get_rnd_number(1, len(video_res_dd_options))
         video_res_dd_options[rd_res_index].click()
 
         # Click on the "Any duration" dropdown, select one value randomly
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_DURATION_DROPDOWN)
-        rd_dur_index = video_search_page.then_get_rnd_number(1, 3)
         video_dur_dd_options = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_DURATION_DROPDOWN_OPTIONS)
+        rd_dur_index = video_search_page.then_get_rnd_number(1, len(video_dur_dd_options))
         video_dur_dd_options[rd_dur_index].click()
 
         # Click on the "Any license" dropdown, select one value randomly
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_LICENSE_DROPDOWN)
-        rd_lic_index = video_search_page.then_get_rnd_number(1, 2)
         video_lic_dd_options = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_LICENSE_DROPDOWN_OPTIONS)
+        rd_lic_index = video_search_page.then_get_rnd_number(1, len(video_lic_dd_options))
         video_lic_dd_options[rd_lic_index].click()
 
         # Assert if there are any results after these changes
@@ -196,7 +196,7 @@ class TestVideoSearch:
         video_link_results = video_search_page.then_get_all_child_items(
             VideoPageLocators.VIDEO_SEARCH_RESULTS_LINK)
 
-        video_rnd_index = video_search_page.then_get_rnd_number(0, 29)
+        video_rnd_index = video_search_page.then_get_rnd_number(0, len(video_link_results))
         # Inside the Video Result, get the attribute for the href,
         # use that href value to open a new browser tab
         video_result_href = video_link_results[video_rnd_index].get_attribute("href")

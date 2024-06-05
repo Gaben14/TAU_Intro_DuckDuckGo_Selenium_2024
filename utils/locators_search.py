@@ -13,6 +13,7 @@ class SearchPageLocators:
     AUTOCOMPLETE_CONTAINER = (By.ID, 'listbox--11')
     AUTOCOMPLETE_SUGGESTIONS_LI = (By.CLASS_NAME, 'searchbox_suggestion__csrUQ')
 
+    # Regions Locators
     REGIONS_DROPDOWN_LINK = (By.CSS_SELECTOR, 'a[data-testid="region-filter-label"]')
     REGIONS_DROPDOWN_DIV_INACTIVE = (By.CLASS_NAME, 'has-inactive-region')
     REGIONS_DROPDOWN_DIV = (By.CSS_SELECTOR, 'div:has(>a[data-testid="region-filter-label"]')
