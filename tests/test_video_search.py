@@ -43,7 +43,7 @@ class TestVideoSearch:
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_TAB)
 
         # Get class list after click
-        video_search_page_css_cls_list = video_search_page.then_get_attribute_for_item(
+        video_search_page_css_cls_list = video_search_page.then_assert_value_in_html_element(
             VideoPageLocators.VIDEO_TAB, "class")
 
         # Assert if Videos tab is active
@@ -64,7 +64,7 @@ class TestVideoSearch:
         # Click on the "Past week" value
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_PAST_WEEK)
 
-        video_child_link_innerHTML = video_search_page.then_get_attribute_for_item(
+        video_child_link_innerHTML = video_search_page.then_assert_value_in_html_element(
             VideoPageLocators.VIDEO_UPLOAD_DATE_DROPDOWN_CHILD_LINK, "innerHTML")
 
         # Assert if the first (<a>) child of the VIDEO_UPLOAD_DATE_DROPDOWN has the text "Past Week"
@@ -87,7 +87,7 @@ class TestVideoSearch:
         video_search_page.when_user_clicks_on_item(VideoPageLocators.VIDEO_STAND_DEF)
 
         # Assert if "Standard definition" has the class is-selected
-        video_stand_def_cls_list = video_search_page.then_get_attribute_for_item(VideoPageLocators.VIDEO_STAND_DEF,
+        video_stand_def_cls_list = video_search_page.then_assert_value_in_html_element(VideoPageLocators.VIDEO_STAND_DEF,
                                                                                  "class")
         AssertSearch.assert_value_in_data_type("is-selected", video_stand_def_cls_list)
 
@@ -116,7 +116,7 @@ class TestVideoSearch:
 
         # Assert that the child <a> item's innerHTML of "Any duration" dropdown is
         # the same as for the random item, we check if the value has actually changed.
-        video_duration_child_link_text = video_search_page.then_get_attribute_for_item(
+        video_duration_child_link_text = video_search_page.then_assert_value_in_html_element(
             VideoPageLocators.VIDEO_DURATION_DROPDOWN_CHILD_LINK, "text")
         AssertSearch.assert_variable_is_equal_to_variable(rand_child_innerHTML, video_duration_child_link_text)
 
@@ -136,7 +136,7 @@ class TestVideoSearch:
         video_search_page.when_user_clicks_on_item(VideoPageLocators.YOUTUBE_STANDARD_LINK)
 
         # Assert that value has changed to "YouTube Standard":
-        license_dd_child_innerHTML = video_search_page.then_get_attribute_for_item(
+        license_dd_child_innerHTML = video_search_page.then_assert_value_in_html_element(
             VideoPageLocators.VIDEO_LICENSE_DROPDOWN_CHILD_LINK, "innerHTML")
         AssertSearch.assert_variable_is_equal_to_variable(license_dd_child_innerHTML, "YouTube Standard")
 

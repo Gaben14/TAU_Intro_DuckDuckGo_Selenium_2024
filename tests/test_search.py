@@ -6,7 +6,7 @@ from selenium.webdriver import Keys
 
 from pages.result import DuckDuckGoSearchResult
 from pages.search import DuckDuckGoSearchPage
-from assertions.assert_search import AssertSearch
+from pages.search_validation import DuckDuckGoSearchValidation
 from utils.locators_search import SearchPageLocators
 
 from selenium.webdriver.support import expected_conditions as EC
@@ -23,38 +23,40 @@ class TestSearch:
     # @pytest.mark.parametrize('phrase', ['panda', 'python', 'polar bear'])
     def test_basic_duckduckgo_search(self, browser):  # phrase
         search_page = DuckDuckGoSearchPage(browser)
+        search_page_validation = DuckDuckGoSearchValidation(browser)
         result_page = DuckDuckGoSearchResult(browser)
 
         # WHEN the user searches for "panda"
         search_page.when_user_searches(self.PHRASE)
 
         # THEN the search result query is "panda"
-        # assert self.PHRASE == result_page.then_get_search_input_value()
-        AssertSearch.assert_variable_is_equal_to_variable(self.PHRASE, result_page.then_get_search_input_value())
+        # AssertSearch.assert_variable_is_equal_to_variable(self.PHRASE, result_page.then_get_search_input_value())
+        search_page_validation.then_assert_variable_is_equal_to_variable(self.PHRASE, result_page.then_get_search_input_value())
 
         # AND the search result links pertain (relates) to "panda"
         titles = result_page.then_get_result_link_titles()
         matches = [t for t in titles if self.PHRASE.lower() in t.lower()]
 
-        # assert len(matches) > 0
-        AssertSearch.assert_search_result_is_greater_as_0(len(matches))
+        # AssertSearch.assert_search_result_is_greater_as_0(len(matches))
+        search_page_validation.then_assert_search_result_is_greater_as_0(len(matches))
 
         # AND the search result title contains "panda"
         # assert self.PHRASE in result_page.then_get_title().lower()
         result_page_title = result_page.then_get_title().lower()
-        AssertSearch.assert_value_in_data_type(self.PHRASE, result_page_title)
+        # AssertSearch.assert_value_in_data_type(self.PHRASE, result_page_title)
+        search_page_validation.then_assert_value_in_data_type(self.PHRASE, result_page_title)
 
         # AND click on more results:
         result_page.when_user_clicks_on_more_results()
 
     def test_duckduckgo_regions_settings(self, browser):
         search_page = DuckDuckGoSearchPage(browser)
-
+        search_page_validation = DuckDuckGoSearchValidation(browser)
         search_page.when_user_searches(self.PHRASE)
 
         # Click on "All regions" dropdown
         regions_filter_dropdown = WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located(SearchPageLocators.REGIONS_DROPDOWN_DIV_INACTIVE)
+            EC.presence_of_element_located(SearchPageLocators.REGIONS_DROPDOWN_LINK)
         )
         regions_filter_dropdown.click()
 
@@ -70,17 +72,20 @@ class TestSearch:
         regions_filter_input.send_keys(rd_regions_text + Keys.RETURN)
 
         # Assert that the Region DropDown class has the value 'is-active'
-        regions_dd_div_cls_list = search_page.then_get_attribute_for_item(
+        regions_dd_div_cls_list = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.REGIONS_DROPDOWN_DIV, 'class')
 
-        AssertSearch.assert_value_in_data_type('is-active', regions_dd_div_cls_list)
+        # search_page.then_assert_html_element_has_is_active(regions_dd_div_cls_list)
+        # AssertSearch.assert_value_in_data_type('is-active', regions_dd_div_cls_list)
+        search_page_validation.then_assert_html_element_has_is_active()
 
         # Assert that the text of REGIONS_DROPDOWN_LINK is the same
         # as for the random value.
-        regions_dd_link_text = search_page.then_get_attribute_for_item(
+        regions_dd_link_text = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.REGIONS_DROPDOWN_LINK, "text")
 
-        AssertSearch.assert_variable_is_equal_to_variable(rd_regions_text, regions_dd_link_text)
+        # AssertSearch.assert_variable_is_equal_to_variable(rd_regions_text, regions_dd_link_text)
+        search_page.then_assert_variable_is_equal_to_variable(rd_regions_text, regions_dd_link_text)
 
     def test_duckduckgo_search_settings(self, browser):
         search_page = DuckDuckGoSearchPage(browser)
@@ -123,14 +128,14 @@ class TestSearch:
 
         # Assert that the grandparent div of label[for="setting_kav"]
         # has the "is-checked" class
-        inf_scroll_gparent_cls_list = search_page.then_get_attribute_for_item(
+        inf_scroll_gparent_cls_list = search_page.then_assert_value_in_html_element(
             SearchPageLocators.INFINITY_SCROLL_GPARENT_DIV, "class")
 
         AssertSearch.assert_value_in_data_type('is-checked', inf_scroll_gparent_cls_list)
 
         # Click on the Open Links in a New Tab flipper, it should be turned on
         search_page.when_user_clicks_on_item(SearchPageLocators.OPEN_LINKS_TOGGLE)
-        open_new_gparent_cls_list = search_page.then_get_attribute_for_item(
+        open_new_gparent_cls_list = search_page.then_assert_value_in_html_element(
             SearchPageLocators.OPEN_LINKS_GPARENT_DIV, "class")
 
         # Assert that  the div.frm__field (grandparent) of Open New has the
@@ -145,19 +150,19 @@ class TestSearch:
         search_page.when_user_clicks_on_item(SearchPageLocators.SETTINGS_LINK)
 
         # Assert that Light Mode Label has the "is-checked" class
-        light_mode_label_cls_list = search_page.then_get_attribute_for_item(
+        light_mode_label_cls_list = search_page.then_assert_value_in_html_element(
             SearchPageLocators.LIGHT_MODE_LABEL, "class")
         AssertSearch.assert_value_in_data_type('is-checked', light_mode_label_cls_list)
 
         # Assert that the grandparent div of Infinity Scroll
         # does not have the "is-checked" class
-        inf_scroll_gparent_cls_list = search_page.then_get_attribute_for_item(
+        inf_scroll_gparent_cls_list = search_page.then_assert_value_in_html_element(
             SearchPageLocators.INFINITY_SCROLL_GPARENT_DIV, "class")
         AssertSearch.assert_value_not_in_data_type('is-checked', inf_scroll_gparent_cls_list)
 
         # Assert that grandparent of Open New Tab
         # does not have the is-checked class
-        open_new_gparent_cls_list = search_page.then_get_attribute_for_item(
+        open_new_gparent_cls_list = search_page.then_assert_value_in_html_element(
             SearchPageLocators.OPEN_LINKS_GPARENT_DIV, "class")
         AssertSearch.assert_value_not_in_data_type('is-checked', open_new_gparent_cls_list)
 

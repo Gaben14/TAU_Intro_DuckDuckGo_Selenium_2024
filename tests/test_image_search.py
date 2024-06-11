@@ -43,7 +43,7 @@ class TestImageSearch:
         image_search_page.when_user_clicks_on_item(ImagePageLocators.IMAGES_TAB)
 
         # Get class list after click
-        image_search_page_css_cls_list = image_search_page.then_get_attribute_for_item(
+        image_search_page_css_cls_list = image_search_page.then_assert_value_in_html_element(
             ImagePageLocators.IMAGES_TAB, "class")
 
         # Assert that the images tab has been selected. - check if the <a> tag has the is-active class
@@ -60,7 +60,7 @@ class TestImageSearch:
         image_search_page.when_user_clicks_on_item(ImagePageLocators.IMAGES_TAB)
 
         image_search_page.when_user_changes_image_size()
-        image_size_medium_cls_list = image_search_page.then_get_attribute_for_item(
+        image_size_medium_cls_list = image_search_page.then_assert_value_in_html_element(
             ImagePageLocators.IMAGE_SIZE_MEDIUM, "class")
 
         # Assert that the 'is-selected' class can be found on the Image Size Medium Button
@@ -81,7 +81,7 @@ class TestImageSearch:
         image_search_page.when_user_clicks_on_item(ImagePageLocators.ALL_COLORS_DROPDOWN)
 
         image_search_page.when_user_clicks_on_item(ImagePageLocators.BLACK_AND_WHITE)
-        black_and_white_cls_list = image_search_page.then_get_attribute_for_item(
+        black_and_white_cls_list = image_search_page.then_assert_value_in_html_element(
             ImagePageLocators.BLACK_AND_WHITE, "class")
 
         AssertSearch.assert_value_in_data_type('is-selected', black_and_white_cls_list)
@@ -99,7 +99,7 @@ class TestImageSearch:
         image_search_page.when_user_clicks_on_item(ImagePageLocators.ALL_TYPES)
 
         image_search_page.when_user_clicks_on_item(ImagePageLocators.ANIMATED_GIF)
-        animated_gif_cls_list = image_search_page.then_get_attribute_for_item(
+        animated_gif_cls_list = image_search_page.then_assert_value_in_html_element(
             ImagePageLocators.ANIMATED_GIF, "class")
 
         # assert 'is-selected' in animated_gif_cls_list

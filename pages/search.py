@@ -54,11 +54,6 @@ class DuckDuckGoSearchPage:
 
         return autocomplete_suggestions_li
 
-    def then_get_attribute_for_item(self, locator, attribute):
-        # Method should take in the selector and just return the class_list
-        html_element = self.browser.find_element(*locator)
-        return html_element.get_attribute(attribute)
-
     def then_click_on_autocomplete_result(self, autocomplete_list):
         # Randomly click on one of the autocomplete suggestion results
         autocomplete_list[SearchPageLocators.rnd_num].click()
@@ -75,3 +70,7 @@ class DuckDuckGoSearchPage:
 
     def then_get_rnd_number(self, num_1, num_2):
         return random.randint(num_1, num_2)
+
+    def then_get_attribute_for_html_element(self, locator, attribute):
+        html_element = self.browser.find_element(*locator)
+        return html_element.get_attribute(attribute)

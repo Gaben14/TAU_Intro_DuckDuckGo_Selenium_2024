@@ -15,3 +15,6 @@ with my own Test Cases.
 - :white_check_mark:  do an image search
 - :white_check_mark: do a video search
 
+After June 8th 2024, the CSS locator strategy has been changed to dynamic values. 
+This is now breaking the logic that was built up.
+
