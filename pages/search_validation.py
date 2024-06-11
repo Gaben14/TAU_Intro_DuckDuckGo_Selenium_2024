@@ -31,24 +31,24 @@ class DuckDuckGoSearchValidation:
         AssertSearch.assert_search_result_is_greater_as_0(search_result)
 
     # Asserts if a html element has a specific class in it
-    def then_assert_html_element_has_is_checked(self, locator):
-        self.then_assert_value_in_html_element(locator, 'class', 'is-checked')
+    def then_assert_data_type_has_is_checked(self, data_type):
+        self.then_assert_value_in_data_type('is-checked', data_type)
 
-    def then_assert_html_element_has_is_active(self, locator):
-        self.then_assert_value_in_html_element(locator, "class", "is-active")
+    def then_assert_data_type_has_is_active(self, data_type):
+        self.then_assert_value_in_data_type("is-active", data_type)
 
-    def then_assert_html_element_has_is_selected(self, locator):
-        self.then_assert_value_in_html_element(locator, "class", "is-selected")
+    def then_assert_data_type_has_is_selected(self, data_type):
+        self.then_assert_value_in_data_type("is-selected", data_type)
 
     # Assert if a html element has no specific class in it:
-    def then_assert_html_element_has_no_is_checked(self, locator):
-        self.then_assert_value_not_in_html_element(locator, "class", "is-checked")
+    def then_assert_data_type_does_not_have_is_checked(self, data_type):
+        self.then_assert_value_not_in_data_type('is-checked', data_type)
 
-    def then_assert_html_element_has_no_is_active(self, locator):
-        self.then_assert_value_not_in_html_element(locator, "class", "is-active")
+    def then_assert_data_type_does_not_have_is_active(self, data_type):
+        self.then_assert_value_not_in_data_type('is-active', data_type)
 
-    def then_assert_html_element_has_no_is_selected(self, locator):
-        self.then_assert_value_not_in_html_element(locator, "class", "is-selected")
+    def then_assert_data_type_does_not_have_is_selected(self, data_type):
+        self.then_assert_value_not_in_data_type("is-selected", data_type)
 
     # TODO: Create seperate methods for the 'is-active' and 'is-selected' asserts
     # Example: then_item_is_active, then_item_is_selected

@@ -29,21 +29,18 @@ class TestSearch:
         # WHEN the user searches for "panda"
         search_page.when_user_searches(self.PHRASE)
 
-        # THEN the search result query is "panda"
-        # AssertSearch.assert_variable_is_equal_to_variable(self.PHRASE, result_page.then_get_search_input_value())
+        # THEN Assert that the search result query = "panda"
         search_page_validation.then_assert_variable_is_equal_to_variable(self.PHRASE, result_page.then_get_search_input_value())
 
         # AND the search result links pertain (relates) to "panda"
         titles = result_page.then_get_result_link_titles()
         matches = [t for t in titles if self.PHRASE.lower() in t.lower()]
 
-        # AssertSearch.assert_search_result_is_greater_as_0(len(matches))
+        # THEN Assert search result is greater than 0
         search_page_validation.then_assert_search_result_is_greater_as_0(len(matches))
 
-        # AND the search result title contains "panda"
-        # assert self.PHRASE in result_page.then_get_title().lower()
+        # THEN assert the search result title contains "panda"
         result_page_title = result_page.then_get_title().lower()
-        # AssertSearch.assert_value_in_data_type(self.PHRASE, result_page_title)
         search_page_validation.then_assert_value_in_data_type(self.PHRASE, result_page_title)
 
         # AND click on more results:
@@ -71,24 +68,22 @@ class TestSearch:
         regions_filter_input.clear()
         regions_filter_input.send_keys(rd_regions_text + Keys.RETURN)
 
-        # Assert that the Region DropDown class has the value 'is-active'
+        # THEN Assert that the Region DropDown class has the value 'is-active'
         regions_dd_div_cls_list = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.REGIONS_DROPDOWN_DIV, 'class')
 
-        # search_page.then_assert_html_element_has_is_active(regions_dd_div_cls_list)
-        # AssertSearch.assert_value_in_data_type('is-active', regions_dd_div_cls_list)
-        search_page_validation.then_assert_html_element_has_is_active()
+        search_page_validation.then_assert_data_type_has_is_checked(regions_dd_div_cls_list)
 
-        # Assert that the text of REGIONS_DROPDOWN_LINK is the same
+        # THEN Assert that the text of REGIONS_DROPDOWN_LINK is the same
         # as for the random value.
         regions_dd_link_text = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.REGIONS_DROPDOWN_LINK, "text")
 
-        # AssertSearch.assert_variable_is_equal_to_variable(rd_regions_text, regions_dd_link_text)
-        search_page.then_assert_variable_is_equal_to_variable(rd_regions_text, regions_dd_link_text)
+        search_page_validation.then_assert_variable_is_equal_to_variable(rd_regions_text, regions_dd_link_text)
 
     def test_duckduckgo_search_settings(self, browser):
         search_page = DuckDuckGoSearchPage(browser)
+        search_page_validation = DuckDuckGoSearchValidation(browser)
 
         search_page.when_user_searches(self.PHRASE)
 
@@ -97,9 +92,10 @@ class TestSearch:
 
         # Change to Dark Mode, by clicking on the div[data-theme-id="d"]
         search_page.when_user_clicks_on_item(SearchPageLocators.DARK_MODE)
+
         # Assert that the label has the is-checked class
         dark_mode_label_classes = browser.find_element(*SearchPageLocators.DARK_MODE_LABEL).get_attribute("class")
-        AssertSearch.assert_value_in_data_type('is-checked', dark_mode_label_classes)
+        search_page_validation.then_assert_data_type_has_is_checked(dark_mode_label_classes)
 
         # Click on the Font Size dropdown
         search_page.when_user_clicks_on_item(SearchPageLocators.FONT_SIZE_DROPDOWN)
@@ -117,6 +113,7 @@ class TestSearch:
 
         # Click on the Display Language dropdown
         search_page.when_user_clicks_on_item(SearchPageLocators.LANGUAGE_DROPDOWN)
+
         # Change the value to "Hungarian"
         search_page.when_user_clicks_on_item(SearchPageLocators.LANGUAGE_HUNGARIAN)
 
@@ -128,19 +125,19 @@ class TestSearch:
 
         # Assert that the grandparent div of label[for="setting_kav"]
         # has the "is-checked" class
-        inf_scroll_gparent_cls_list = search_page.then_assert_value_in_html_element(
+        inf_scroll_gparent_cls_list = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.INFINITY_SCROLL_GPARENT_DIV, "class")
 
-        AssertSearch.assert_value_in_data_type('is-checked', inf_scroll_gparent_cls_list)
+        search_page_validation.then_assert_data_type_has_is_checked(inf_scroll_gparent_cls_list)
 
         # Click on the Open Links in a New Tab flipper, it should be turned on
         search_page.when_user_clicks_on_item(SearchPageLocators.OPEN_LINKS_TOGGLE)
-        open_new_gparent_cls_list = search_page.then_assert_value_in_html_element(
+        open_new_gparent_cls_list = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.OPEN_LINKS_GPARENT_DIV, "class")
 
         # Assert that  the div.frm__field (grandparent) of Open New has the
         # is-checked class
-        AssertSearch.assert_value_in_data_type('is-checked', open_new_gparent_cls_list)
+        search_page_validation.then_assert_data_type_has_is_checked(open_new_gparent_cls_list)
 
         # Click on the Reset buttons
         search_page.when_user_clicks_on_item(SearchPageLocators.APPEARANCE_RESET_LINK)
@@ -150,24 +147,28 @@ class TestSearch:
         search_page.when_user_clicks_on_item(SearchPageLocators.SETTINGS_LINK)
 
         # Assert that Light Mode Label has the "is-checked" class
-        light_mode_label_cls_list = search_page.then_assert_value_in_html_element(
+        light_mode_label_cls_list = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.LIGHT_MODE_LABEL, "class")
-        AssertSearch.assert_value_in_data_type('is-checked', light_mode_label_cls_list)
+
+        search_page_validation.then_assert_data_type_has_is_checked(light_mode_label_cls_list)
 
         # Assert that the grandparent div of Infinity Scroll
         # does not have the "is-checked" class
-        inf_scroll_gparent_cls_list = search_page.then_assert_value_in_html_element(
+        inf_scroll_gparent_cls_list = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.INFINITY_SCROLL_GPARENT_DIV, "class")
-        AssertSearch.assert_value_not_in_data_type('is-checked', inf_scroll_gparent_cls_list)
+
+        search_page_validation.then_assert_data_type_does_not_have_is_checked(inf_scroll_gparent_cls_list)
 
         # Assert that grandparent of Open New Tab
         # does not have the is-checked class
-        open_new_gparent_cls_list = search_page.then_assert_value_in_html_element(
+        open_new_gparent_cls_list = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.OPEN_LINKS_GPARENT_DIV, "class")
-        AssertSearch.assert_value_not_in_data_type('is-checked', open_new_gparent_cls_list)
+
+        search_page_validation.then_assert_data_type_does_not_have_is_checked(open_new_gparent_cls_list)
 
     def test_random_article(self, browser):
         search_page = DuckDuckGoSearchPage(browser)
+        search_page_validation = DuckDuckGoSearchValidation(browser)
         result_page = DuckDuckGoSearchResult(browser)
 
         # WHEN the user searches for "phrase"
@@ -179,18 +180,21 @@ class TestSearch:
         # THEN assert search result contains 'Phrase' in title
         # assert self.PHRASE in result_page.then_get_title().lower()
         result_page_title = result_page.then_get_title().lower()
-        AssertSearch.assert_value_in_data_type(self.PHRASE, result_page_title)
+        # AssertSearch.assert_value_in_data_type(self.PHRASE, result_page_title)
+        search_page_validation.then_assert_value_in_data_type(self.PHRASE, result_page_title)
 
     def test_autocomplete_search(self, browser):
         # GIVEN the DuckDuckGo home page is displayed
         search_page = DuckDuckGoSearchPage(browser)
+        search_page_validation = DuckDuckGoSearchValidation(browser)
+
 
         # WHEN the user searches for "panda"
         autocomplete_result_list = search_page.when_user_enters_phrase_in_search_autocomplete(self.PHRASE)
         # THEN Assert if the autocomplete results contain the 'phrase'
         for auto_c_item in autocomplete_result_list:
-            # assert self.PHRASE in auto_c_item.text
-            AssertSearch.assert_value_in_data_type(self.PHRASE, auto_c_item.text)
+            # AssertSearch.assert_value_in_data_type(self.PHRASE, auto_c_item.text)
+            search_page_validation.then_assert_value_in_data_type(self.PHRASE, auto_c_item.text)
 
         # AND Randomly click on one of the autocomplete suggestion results
         search_page.then_click_on_autocomplete_result(autocomplete_result_list)
