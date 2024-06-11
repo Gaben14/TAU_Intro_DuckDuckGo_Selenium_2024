@@ -1,5 +1,4 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
-
 from assertions.assert_search import AssertSearch
 
 

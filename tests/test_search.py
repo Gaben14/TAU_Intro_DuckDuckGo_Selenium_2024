@@ -188,7 +188,6 @@ class TestSearch:
         search_page = DuckDuckGoSearchPage(browser)
         search_page_validation = DuckDuckGoSearchValidation(browser)
 
-
         # WHEN the user searches for "panda"
         autocomplete_result_list = search_page.when_user_enters_phrase_in_search_autocomplete(self.PHRASE)
         # THEN Assert if the autocomplete results contain the 'phrase'
