@@ -31,9 +31,9 @@ class SearchPageLocators:
     LIGHT_MODE_LABEL = (By.CSS_SELECTOR, 'label[for="setting_kae_-1"]')
 
     FONT_SIZE_DROPDOWN = (By.ID, 'setting_ks')
-    FONT_SIZE_DROPDOWN_OPTIONS = (By.CSS_SELECTOR, '#setting_ks option')
+    FONT_SIZE_DROPDOWN_OPTIONS = (By.CSS_SELECTOR, 'select#setting_ks option')
     FONT_FAMILY_DROPDOWN = (By.ID, 'setting_kt')
-    FONT_FAMILY_DROPDOWN_OPTIONS = (By.CSS_SELECTOR, '#setting_kt option')
+    FONT_FAMILY_DROPDOWN_OPTIONS = (By.CSS_SELECTOR, 'select#setting_kt option')
 
     APPEARANCE_RESET_LINK = (By.CLASS_NAME, 'js-settings-dropdown-reset-appearance')
 

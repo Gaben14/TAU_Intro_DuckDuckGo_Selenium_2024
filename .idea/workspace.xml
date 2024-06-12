@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Refactored the asserts of test_duckduckgo_search_settings method.">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Fixing the test_duckduckgo_regions_settings method. (locators, asserts)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_validation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/locators_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_search.py" afterDir="false" />
     </list>
@@ -330,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718122049238</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Fixing the test_duckduckgo_regions_settings method. (locators, asserts)">
+      <option name="closed" value="true" />
+      <created>1718194432215</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1718194432215</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -345,7 +354,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Chapter 8 completed." />
     <MESSAGE value="Completing:&#10;-search by clicking the button instead of typing RETURN&#10;-click a search result&quot;" />
     <MESSAGE value="Completing:&#10;-search by selecting an auto-complete suggestion" />
     <MESSAGE value="Completing:&#10;- Update test_random_article test case" />
@@ -370,6 +378,7 @@
     <MESSAGE value="Finished when_user_changes_region" />
     <MESSAGE value="Refactored the random methods." />
     <MESSAGE value="Refactored the asserts of test_duckduckgo_search_settings method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored the asserts of test_duckduckgo_search_settings method." />
+    <MESSAGE value="Fixing the test_duckduckgo_regions_settings method. (locators, asserts)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing the test_duckduckgo_regions_settings method. (locators, asserts)" />
   </component>
 </project>
