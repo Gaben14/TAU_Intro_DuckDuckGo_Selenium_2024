@@ -47,6 +47,7 @@ class TestSearch:
         result_page.when_user_clicks_on_more_results()
 
     def test_duckduckgo_regions_settings(self, browser):
+        # TODO: Rework the locators for region list
         search_page = DuckDuckGoSearchPage(browser)
         search_page_validation = DuckDuckGoSearchValidation(browser)
         search_page.when_user_searches(self.PHRASE)
@@ -58,28 +59,34 @@ class TestSearch:
         regions_filter_dropdown.click()
 
         # Get a random regions Text
-        regions_list = browser.find_elements(*SearchPageLocators.REGIONS_LI)
+        regions_list = browser.find_elements(*SearchPageLocators.REGIONS_SPANS)
 
-        rd_regions_index = search_page.then_get_rnd_number(0, len(regions_list))
-        rd_regions_text = regions_list[rd_regions_index].get_attribute("text")
+        # Starting from 1 because the "All Regions" is the first one.
+        rd_regions_index = search_page.then_get_rnd_number(1, len(regions_list))
+        rd_regions_innerHTML = regions_list[rd_regions_index].get_attribute("innerHTML")
 
         # Enter the random regions value in the region filter input field
         regions_filter_input = browser.find_element(*SearchPageLocators.REGIONS_FILTER_INPUT)
         regions_filter_input.clear()
-        regions_filter_input.send_keys(rd_regions_text + Keys.RETURN)
+        regions_filter_input.send_keys(rd_regions_innerHTML)
+
+        # Click on the Result the input field
+        regions_filter_result = browser.find_element(*SearchPageLocators.REGIONS_FILTER_INPUT_RESULT)
+        regions_filter_result.click()
 
         # THEN Assert that the Region DropDown class has the value 'is-active'
-        regions_dd_div_cls_list = search_page.then_get_attribute_for_html_element(
-            SearchPageLocators.REGIONS_DROPDOWN_DIV, 'class')
+        regions_dd_div_aria_checked = WebDriverWait(browser, 10).until(
+            EC.text_to_be_present_in_element_attribute(SearchPageLocators.REGIONS_DROPDOWN_DIV, 'aria-checked', 'true')
+        )
 
-        search_page_validation.then_assert_data_type_has_is_checked(regions_dd_div_cls_list)
+        search_page_validation.then_assert_variable_is_equal_to_variable(True, regions_dd_div_aria_checked)
 
         # THEN Assert that the text of REGIONS_DROPDOWN_LINK is the same
         # as for the random value.
         regions_dd_link_text = search_page.then_get_attribute_for_html_element(
             SearchPageLocators.REGIONS_DROPDOWN_LINK, "text")
 
-        search_page_validation.then_assert_variable_is_equal_to_variable(rd_regions_text, regions_dd_link_text)
+        search_page_validation.then_assert_variable_is_equal_to_variable(rd_regions_innerHTML, regions_dd_link_text)
 
     def test_duckduckgo_search_settings(self, browser):
         search_page = DuckDuckGoSearchPage(browser)
