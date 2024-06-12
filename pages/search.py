@@ -69,7 +69,7 @@ class DuckDuckGoSearchPage:
         return dropdown_child_a
 
     def then_get_rnd_number(self, num_1, num_2):
-        return random.randint(num_1, num_2)
+        return random.randint(num_1, num_2 - 1)
 
     def then_get_attribute_for_html_element(self, locator, attribute):
         html_element = self.browser.find_element(*locator)
