@@ -50,7 +50,9 @@ class DuckDuckGoSearchPage:
         autocomplete_container = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located(SearchPageLocators.AUTOCOMPLETE_CONTAINER)
         )
-        autocomplete_suggestions_li = self.browser.find_elements(*SearchPageLocators.AUTOCOMPLETE_SUGGESTIONS_LI)
+
+        autocomplete_suggestions_li = self.browser.find_elements(
+            *SearchPageLocators.AUTOCOMPLETE_SUGGESTIONS_LI)
 
         return autocomplete_suggestions_li
 

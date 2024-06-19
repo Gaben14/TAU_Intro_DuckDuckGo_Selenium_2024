@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Refactoring the test_video_search.py  asserts">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Refactoring the test_image_search.py  asserts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assertions/assert_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/assertions/assert_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_video_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_video_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/locators_video.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_video.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +56,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "new-assert-approach",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -353,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718202399505</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Refactoring the test_image_search.py  asserts">
+      <option name="closed" value="true" />
+      <created>1718203521890</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1718203521890</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -368,7 +383,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Completing:&#10;- Update test_random_article test case" />
     <MESSAGE value="Created new files for image search. Added Test Case for the Image search." />
     <MESSAGE value="Implemented the Image_Size change tests." />
     <MESSAGE value="The test_image_search.py file has been completed. &#10;Currently it violates the DRY principle multiple times. Next step is to move out the page opening from each test method." />
@@ -393,6 +407,7 @@
     <MESSAGE value="Fixing the test_duckduckgo_regions_settings method. (locators, asserts)" />
     <MESSAGE value="Fixing the test_search.py file (locators, asserts)" />
     <MESSAGE value="Refactoring the test_video_search.py  asserts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the test_video_search.py  asserts" />
+    <MESSAGE value="Refactoring the test_image_search.py  asserts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the test_image_search.py  asserts" />
   </component>
 </project>

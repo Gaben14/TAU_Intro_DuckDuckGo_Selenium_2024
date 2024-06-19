@@ -1,7 +1,6 @@
 """
 These tests (test cases) cover DuckDuckGo image searches.
 """
-import requests
 
 from pages.image_search import DuckDuckGoImageSearch
 from utils.locators_image import ImagePageLocators
@@ -15,14 +14,15 @@ class TestImageSearch:
     1. Open the browser and the https://duckduckgo.com page - Assert if the page has been opened successfully - HTTP 200
     2. Find the search-bar. Enter the phrase.
     3. Click on the 'Images' tab - Assert if Images tab is active
-    4. Change the value inside "All sizes" to "Medium" - Assert if value has been changed to Medium
+    4. Change the value inside "All sizes" to "Medium"
+        - Assert if value has been changed to Medium
     5. Create a list which contains all the color options from the "All colors" dropdown
-        5.1 Assert if the color has been changed.
+        - Assert if the color has been changed.
     6. Change the type under the "All types" dropdown to "Animated GIF"
-        6.1 Assert if the change has been successful
+        - Assert if the change has been successful
     7. Change the "All Licenses" to "Free to Share and Use"
-        7.1 - Assert if "Free to Share and Use" is now selected
-        7.2 - Assert if there are any images / results after this change.
+        - Assert if "Free to Share and Use" is now selected
+        - Assert if there are any images / results after this change.
     """
 
     # Class Variables
@@ -102,11 +102,6 @@ class TestImageSearch:
             ImagePageLocators.ANIMATED_GIF)
 
     def test_change_license(self, browser):
-        """
-        Change the "All Licenses" to "Free to Share and Use"
-            - Assert if "Free to Share and Use" is now selected
-            - Assert if there are any images / results after this change.
-        """
         image_search_page = DuckDuckGoImageSearch(browser)
         search_page_validation = DuckDuckGoSearchValidation(browser)
 

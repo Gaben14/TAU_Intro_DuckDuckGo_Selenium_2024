@@ -13,11 +13,25 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 class TestSearch:
+    """
+    Test Case:
+
+    1. Open the browser and the https://duckduckgo.com page
+        - Assert if the page has been opened successfully - HTTP 200
+    2. Find the search-bar. Enter the phrase.
+        - Assert if there are any search results
+        - Assert if the page title contains the search phrase
+    4. Change the value inside "Regions" to a random value
+        - Assert if value has been changed to the random value
+    5. Change the "Settings" inside search
+        - Assert if the values have been changed after clicking on them
+    6. Open a random search result
+        - Assert if the search result contains the Phrase
+    7. Check if the autocomplete search result suggestions contain the Phrase
+    """
+
+
     # Class Variable
-    """
-    TODO: for later: move Phrase to an enum class, or the URL should already have the
-    phrase as a query parameter
-    """
     PHRASE = "panda"
 
     # @pytest.mark.parametrize('phrase', ['panda', 'python', 'polar bear'])
@@ -30,7 +44,8 @@ class TestSearch:
         search_page.when_user_searches(self.PHRASE)
 
         # THEN Assert that the search result query = "panda"
-        search_page_validation.then_assert_variable_is_equal_to_variable(self.PHRASE, result_page.then_get_search_input_value())
+        search_page_validation.then_assert_variable_is_equal_to_variable(
+            self.PHRASE, result_page.then_get_search_input_value())
 
         # AND the search result links pertain (relates) to "panda"
         titles = result_page.then_get_result_link_titles()
@@ -69,7 +84,7 @@ class TestSearch:
         regions_filter_input.clear()
         regions_filter_input.send_keys(rd_regions_innerHTML)
 
-        # Click on the Result the input field
+        # Click on the Result input field
         regions_filter_result = browser.find_element(*SearchPageLocators.REGIONS_FILTER_INPUT_RESULT)
         regions_filter_result.click()
 
@@ -95,7 +110,8 @@ class TestSearch:
         search_page.when_user_clicks_on_item(SearchPageLocators.DARK_MODE)
 
         # Assert that the Dark Mode label has the is-checked class
-        search_page_validation.then_assert_html_element_has_is_checked_cls(SearchPageLocators.DARK_MODE_LABEL)
+        search_page_validation.then_assert_html_element_has_is_checked_cls(
+            SearchPageLocators.DARK_MODE_LABEL)
 
         # Click on the Font Size dropdown
         search_page.when_user_clicks_on_item(SearchPageLocators.FONT_SIZE_DROPDOWN)
