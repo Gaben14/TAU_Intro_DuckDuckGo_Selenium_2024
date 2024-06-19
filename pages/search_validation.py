@@ -1,12 +1,39 @@
+import logging
+import datetime as dt
+
 from selenium.webdriver.chrome.webdriver import WebDriver
 from assertions.assert_search import AssertSearch
-
 
 class DuckDuckGoSearchValidation:
 
     def __init__(self, browser: WebDriver):
         # assigning the browser fixture to self
         self.browser = browser
+
+    # Logging
+    # Get the logger and set its level
+    TODAY = dt.datetime.today()
+    LOG_FILENAME = f"{TODAY.month:02d}-{TODAY.day:02d}-{TODAY.year}.log"
+
+    LOGGER = logging.getLogger("searchLog")
+    LOGGER.setLevel(logging.ERROR)
+
+    # Create handlers
+    console_handler = logging.StreamHandler()
+    file_handler = logging.FileHandler(LOG_FILENAME)
+
+    # Create formatter
+    formatter = logging.Formatter(
+        "%(asctime)s %(levelname)s %(name)s:%(lineno)d %(message)s"
+    )
+
+    # Add the formatter to the handlers:
+    console_handler.setFormatter(formatter)
+    file_handler.setFormatter(formatter)
+
+    # Add the handlers to the logger
+    LOGGER.addHandler(console_handler)
+    LOGGER.addHandler(file_handler)
 
     # Asserts
 

@@ -29,8 +29,6 @@ class TestSearch:
         - Assert if the search result contains the Phrase
     7. Check if the autocomplete search result suggestions contain the Phrase
     """
-
-
     # Class Variable
     PHRASE = "panda"
 
