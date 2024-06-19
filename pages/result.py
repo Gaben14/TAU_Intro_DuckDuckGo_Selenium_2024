@@ -36,4 +36,3 @@ class DuckDuckGoSearchResult:
 
     def then_get_title(self):
         return self.browser.title
-

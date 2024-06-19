@@ -16,10 +16,11 @@ class SearchPageLocators:
     # Regions Locators
     REGIONS_DROPDOWN_LINK = (By.CSS_SELECTOR, 'a[data-testid="region-filter-label"]')
     REGIONS_DROPDOWN_DIV_INACTIVE = (By.CLASS_NAME, 'has-inactive-region')
-    REGIONS_DROPDOWN_DIV = (By.CSS_SELECTOR, 'div:has(>a[data-testid="region-filter-label"]')
+    REGIONS_DROPDOWN_DIV = (By.CSS_SELECTOR, 'div:has(+a[data-testid="region-filter-label"]')
     # REGIONS_FILTER_CLEAR_ALL_LINK = (By.CLASS_NAME, 'js-region-filter-clear')
-    REGIONS_LI = (By.CSS_SELECTOR, 'ol.js-region-filter-list li.modal__list__item > a')
-    REGIONS_FILTER_INPUT = (By.CLASS_NAME, 'js-region-filter-input')
+    REGIONS_SPANS = (By.CSS_SELECTOR, 'span.fdosLIuRgrWo7SyeqSUb')
+    REGIONS_FILTER_INPUT = (By.CSS_SELECTOR, 'input[placeholder="Search"]')
+    REGIONS_FILTER_INPUT_RESULT = (By.CSS_SELECTOR, 'div.eRQYVfFPOfM6ezz54H_V  div.BDI1KtNF8HUPBZ4Cw_nK')
 
     # Settings Locators
     SETTINGS_LINK = (By.CLASS_NAME, 'dropdown--settings')
@@ -30,9 +31,9 @@ class SearchPageLocators:
     LIGHT_MODE_LABEL = (By.CSS_SELECTOR, 'label[for="setting_kae_-1"]')
 
     FONT_SIZE_DROPDOWN = (By.ID, 'setting_ks')
-    FONT_SIZE_DROPDOWN_OPTIONS = (By.CSS_SELECTOR, '#setting_ks option')
+    FONT_SIZE_DROPDOWN_OPTIONS = (By.CSS_SELECTOR, 'select#setting_ks option')
     FONT_FAMILY_DROPDOWN = (By.ID, 'setting_kt')
-    FONT_FAMILY_DROPDOWN_OPTIONS = (By.CSS_SELECTOR, '#setting_kt option')
+    FONT_FAMILY_DROPDOWN_OPTIONS = (By.CSS_SELECTOR, 'select#setting_kt option')
 
     APPEARANCE_RESET_LINK = (By.CLASS_NAME, 'js-settings-dropdown-reset-appearance')
 

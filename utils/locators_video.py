@@ -1,6 +1,4 @@
-# imports
 from selenium.webdriver.common.by import By
-
 
 class VideoPageLocators:
     VIDEO_TAB = (By.CSS_SELECTOR, 'a[data-testid="tab-label-videos"]')
