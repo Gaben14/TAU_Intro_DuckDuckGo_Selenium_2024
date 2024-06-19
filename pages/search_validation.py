@@ -10,38 +10,41 @@ class DuckDuckGoSearchValidation:
         # assigning the browser fixture to self
         self.browser = browser
 
-    # Logging
-    # Get the logger and set its level
-    TODAY = dt.datetime.today()
-    LOG_FILENAME = f"{TODAY.month:02d}-{TODAY.day:02d}-{TODAY.year}.log"
+    def log_details(self):
+        # Logging
+        # Get the logger and set its level
+        today = dt.datetime.today()
+        log_filename = f"{today.month:02d}-{today.day:02d}-{today.year}.log"
 
-    LOGGER = logging.getLogger("searchLog")
-    LOGGER.setLevel(logging.ERROR)
+        logger = logging.getLogger("searchLog")
+        logger.setLevel(logging.ERROR)
 
-    # Create handlers
-    console_handler = logging.StreamHandler()
-    file_handler = logging.FileHandler(LOG_FILENAME)
+        # Create handlers
+        console_handler = logging.StreamHandler()
+        file_handler = logging.FileHandler(f"logs/{log_filename}")
 
-    # Create formatter
-    formatter = logging.Formatter(
-        "%(asctime)s %(levelname)s %(name)s:%(lineno)d %(message)s"
-    )
+        # Create formatter
+        formatter = logging.Formatter(
+            "%(asctime)s %(levelname)s %(name)s:%(lineno)d %(message)s"
+        )
 
-    # Add the formatter to the handlers:
-    console_handler.setFormatter(formatter)
-    file_handler.setFormatter(formatter)
+        # Add the formatter to the handlers:
+        console_handler.setFormatter(formatter)
+        file_handler.setFormatter(formatter)
 
-    # Add the handlers to the logger
-    LOGGER.addHandler(console_handler)
-    LOGGER.addHandler(file_handler)
+        # Add the handlers to the logger
+        logger.addHandler(console_handler)
+        logger.addHandler(file_handler)
+
+        return logger
 
     # Asserts
-
     def then_assert_variable_is_equal_to_variable(self, variable_1, variable_2):
         AssertSearch.assert_variable_is_equal_to_variable(variable_1, variable_2)
 
     def then_assert_search_result_is_greater_as_0(self, search_result):
         AssertSearch.assert_search_result_is_greater_as_0(search_result)
+        self.log_details().debug("This message is a Debug message")
 
     def then_assert_value_in_data_type(self, value, data_type):
         AssertSearch.assert_value_in_data_type(value, data_type)

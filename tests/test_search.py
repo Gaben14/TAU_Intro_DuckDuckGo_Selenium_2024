@@ -65,35 +65,36 @@ class TestSearch:
         search_page.when_user_searches(self.PHRASE)
 
         # Click on "All regions" dropdown
-        regions_filter_dropdown = WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located(SearchPageLocators.REGIONS_DROPDOWN_LINK)
+        regions_filter_dropdown = WebDriverWait(browser, 25).until(
+            EC.visibility_of_element_located(SearchPageLocators.REGIONS_CURRENT_LINK)
         )
         regions_filter_dropdown.click()
 
         # Get a random regions Text
-        regions_list = browser.find_elements(*SearchPageLocators.REGIONS_SPANS)
+        regions_list = browser.find_elements(*SearchPageLocators.REGIONS_DROPDOWN_LINK)
 
         # Starting from 1 because the "All Regions" is the first one.
         rd_regions_index = search_page.then_get_rnd_number(1, len(regions_list))
-        rd_regions_innerHTML = regions_list[rd_regions_index].get_attribute("innerHTML")
+        # rd_regions_innerHTML = regions_list[rd_regions_index].get_attribute("innerHTML")
+        rd_regions_text = regions_list[rd_regions_index].get_attribute("text")
 
         # Enter the random regions value in the region filter input field
         regions_filter_input = browser.find_element(*SearchPageLocators.REGIONS_FILTER_INPUT)
         regions_filter_input.clear()
-        regions_filter_input.send_keys(rd_regions_innerHTML)
+        regions_filter_input.send_keys(rd_regions_text)
 
         # Click on the Result input field
         regions_filter_result = browser.find_element(*SearchPageLocators.REGIONS_FILTER_INPUT_RESULT)
         regions_filter_result.click()
 
         # THEN Assert that the Region Toggle Div aria-checked has the value True
-        search_page_validation.then_assert_value_is_equal_to_html_element(
-            SearchPageLocators.REGIONS_DROPDOWN_DIV, 'aria-checked', 'true')
+        search_page_validation.then_assert_value_in_html_element(
+            SearchPageLocators.REGIONS_DROPDOWN_SWITCH, 'class', 'is-on')
 
         # THEN Assert that the text of REGIONS_DROPDOWN_LINK is the same
         # as for the random value.
         search_page_validation.then_assert_value_is_equal_to_html_element(
-            SearchPageLocators.REGIONS_DROPDOWN_LINK, "text", rd_regions_innerHTML)
+            SearchPageLocators.REGIONS_CURRENT_LINK, "text", rd_regions_text)
 
     def test_duckduckgo_search_settings(self, browser):
         search_page = DuckDuckGoSearchPage(browser)

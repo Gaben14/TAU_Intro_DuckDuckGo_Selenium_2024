@@ -14,13 +14,16 @@ class SearchPageLocators:
     AUTOCOMPLETE_SUGGESTIONS_LI = (By.CLASS_NAME, 'searchbox_suggestion__csrUQ')
 
     # Regions Locators
-    REGIONS_DROPDOWN_LINK = (By.CSS_SELECTOR, 'a[data-testid="region-filter-label"]')
+    REGIONS_CURRENT_LINK = (By.CSS_SELECTOR, 'a[data-testid="region-filter-label"]')
     REGIONS_DROPDOWN_DIV_INACTIVE = (By.CLASS_NAME, 'has-inactive-region')
-    REGIONS_DROPDOWN_DIV = (By.CSS_SELECTOR, 'div:has(+a[data-testid="region-filter-label"]')
+    REGIONS_DROPDOWN_DIV = (By.CSS_SELECTOR, 'div:has(>a[data-testid="region-filter-label"]')
+    REGIONS_DROPDOWN_SWITCH = (By.CLASS_NAME, 'js-region-filter-switch')
     # REGIONS_FILTER_CLEAR_ALL_LINK = (By.CLASS_NAME, 'js-region-filter-clear')
-    REGIONS_SPANS = (By.CSS_SELECTOR, 'span.fdosLIuRgrWo7SyeqSUb')
+    # REGIONS_SPANS = (By.CSS_SELECTOR, 'span.fdosLIuRgrWo7SyeqSUb')
+    REGIONS_DROPDOWN_LINK = (By.CLASS_NAME, 'js-region-filter-link')
     REGIONS_FILTER_INPUT = (By.CSS_SELECTOR, 'input[placeholder="Search"]')
-    REGIONS_FILTER_INPUT_RESULT = (By.CSS_SELECTOR, 'div.eRQYVfFPOfM6ezz54H_V  div.BDI1KtNF8HUPBZ4Cw_nK')
+    # REGIONS_FILTER_INPUT_RESULT = (By.CSS_SELECTOR, 'div.eRQYVfFPOfM6ezz54H_V  div.BDI1KtNF8HUPBZ4Cw_nK')
+    REGIONS_FILTER_INPUT_RESULT = (By.CSS_SELECTOR, 'a.js-region-filter-link')
 
     # Settings Locators
     SETTINGS_LINK = (By.CLASS_NAME, 'dropdown--settings')
