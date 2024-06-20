@@ -8,7 +8,6 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from assertions.assert_search import AssertSearch
 from utils.locators_search import SearchPageLocators
 
 import random

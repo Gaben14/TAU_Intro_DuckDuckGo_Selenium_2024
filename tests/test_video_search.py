@@ -115,7 +115,7 @@ class TestVideoSearch:
 
         # Assert that the child <a> item's text of "Any duration" dropdown is
         # the same as for the random item, we check if the value has actually changed.
-        search_page_validation.then_assert_value_is_equal_to_html_element(
+        search_page_validation.then_assert_value_is_equal_to_html_element_attr(
             VideoPageLocators.VIDEO_DURATION_DROPDOWN_CHILD_LINK, 'text', rand_child_innerHTML)
 
     def test_change_video_license(self, browser):
@@ -135,7 +135,7 @@ class TestVideoSearch:
         video_search_page.when_user_clicks_on_item(VideoPageLocators.YOUTUBE_STANDARD_LINK)
 
         # Assert that value has changed to "YouTube Standard":
-        search_page_validation.then_assert_value_is_equal_to_html_element(
+        search_page_validation.then_assert_value_is_equal_to_html_element_attr(
             VideoPageLocators.VIDEO_LICENSE_DROPDOWN_CHILD_LINK, 'innerHTML', 'YouTube Standard')
 
     def test_search_results_after_filtering(self, browser):

@@ -1,4 +1,6 @@
+
 class AssertSearch:
+    # TODO - Log AssertionErrors
     @staticmethod
     def assert_value_not_in_data_type(value, data_type):
         assert value not in data_type

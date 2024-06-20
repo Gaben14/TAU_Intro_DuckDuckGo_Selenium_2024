@@ -115,7 +115,7 @@ class TestImageSearch:
         image_search_page.when_user_clicks_on_item(ImagePageLocators.FREE_TO_SHARE_AND_USE_LINK)
 
         # Assert if "Free to Share and Use" is now selected
-        search_page_validation.then_assert_value_is_equal_to_html_element(
+        search_page_validation.then_assert_value_is_equal_to_html_element_attr(
             ImagePageLocators.FREE_TO_SHARE_AND_USE_LINK, 'innerHTML', 'Free to Share and Use')
 
         # Assert if there are any images / results after this change.

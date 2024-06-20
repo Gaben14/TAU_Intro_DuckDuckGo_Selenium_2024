@@ -93,7 +93,7 @@ class TestSearch:
 
         # THEN Assert that the text of REGIONS_DROPDOWN_LINK is the same
         # as for the random value.
-        search_page_validation.then_assert_value_is_equal_to_html_element(
+        search_page_validation.then_assert_value_is_equal_to_html_element_attr(
             SearchPageLocators.REGIONS_CURRENT_LINK, "text", rd_regions_text)
 
     def test_duckduckgo_search_settings(self, browser):
@@ -165,12 +165,12 @@ class TestSearch:
 
         # Assert that the grandparent div of Infinity Scroll
         # does not have the "is-checked" class
-        search_page_validation.then_assert_data_type_does_not_have_is_checked(
+        search_page_validation.then_assert_html_element_does_not_have_is_checked_cls(
             SearchPageLocators.INFINITY_SCROLL_GPARENT_DIV)
 
         # Assert that grandparent of Open New Tab
         # does not have the is-checked class
-        search_page_validation.then_assert_data_type_does_not_have_is_checked(
+        search_page_validation.then_assert_html_element_does_not_have_is_checked_cls(
             SearchPageLocators.OPEN_LINKS_GPARENT_DIV)
 
     def test_random_article(self, browser):

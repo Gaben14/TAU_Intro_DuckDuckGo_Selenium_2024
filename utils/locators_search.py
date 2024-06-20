@@ -22,7 +22,6 @@ class SearchPageLocators:
     # REGIONS_SPANS = (By.CSS_SELECTOR, 'span.fdosLIuRgrWo7SyeqSUb')
     REGIONS_DROPDOWN_LINK = (By.CLASS_NAME, 'js-region-filter-link')
     REGIONS_FILTER_INPUT = (By.CSS_SELECTOR, 'input[placeholder="Search"]')
-    # REGIONS_FILTER_INPUT_RESULT = (By.CSS_SELECTOR, 'div.eRQYVfFPOfM6ezz54H_V  div.BDI1KtNF8HUPBZ4Cw_nK')
     REGIONS_FILTER_INPUT_RESULT = (By.CSS_SELECTOR, 'a.js-region-filter-link')
 
     # Settings Locators

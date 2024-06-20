@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Implementing the basic logging functionality and creating separate branch.">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Minor refactoring and adding logging.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assertions/assert_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/assertions/assert_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_video_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_video_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/locators_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -384,7 +388,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718801957526</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Minor refactoring and adding logging.">
+      <option name="closed" value="true" />
+      <created>1718826483514</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1718826483514</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -399,7 +411,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="The test_image_search.py file has been completed. &#10;Currently it violates the DRY principle multiple times. Next step is to move out the page opening from each test method." />
     <MESSAGE value="Moving the image_search locators to a new file called locators_image.py." />
     <MESSAGE value="Moving the search locators to a new file called locators_search.py&#10;Updating the locators in locators_search.py" />
     <MESSAGE value="Moved the &quot;click_on_item()&quot; and &quot;get_html_css_class_list()&quot; to the search.py file.Updated some tests." />
@@ -424,6 +435,7 @@
     <MESSAGE value="Refactoring the test_image_search.py  asserts" />
     <MESSAGE value="Minor cleanups and updating test cases." />
     <MESSAGE value="Implementing the basic logging functionality and creating separate branch." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing the basic logging functionality and creating separate branch." />
+    <MESSAGE value="Minor refactoring and adding logging." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor refactoring and adding logging." />
   </component>
 </project>
