@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Minor refactoring and adding logging.">
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Minor refactoring and adding logging to search_validation.py">
+      <change afterPath="$PROJECT_DIR$/logs/logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assertions/assert_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/assertions/assert_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_image_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_video_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_video_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/locators_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/locators_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,14 +51,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "logger-implementation",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;logger-implementation&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Gabor_Zorad\Work\2024\TAU_Intro_Selenium\pages" />
@@ -71,7 +67,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+        <option value="bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14" />
       </set>
     </attachedChunks>
   </component>
@@ -396,7 +392,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718826483514</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Minor refactoring and adding logging to search_validation.py">
+      <option name="closed" value="true" />
+      <created>1718898260445</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1718898260445</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +415,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moving the image_search locators to a new file called locators_image.py." />
     <MESSAGE value="Moving the search locators to a new file called locators_search.py&#10;Updating the locators in locators_search.py" />
     <MESSAGE value="Moved the &quot;click_on_item()&quot; and &quot;get_html_css_class_list()&quot; to the search.py file.Updated some tests." />
     <MESSAGE value="Completing the test_change_licence test method in test_image_search.py. Also added get_child_link_of_dropdown_menu to search.py.&#10;Updated locators_image.py" />
@@ -436,6 +439,7 @@
     <MESSAGE value="Minor cleanups and updating test cases." />
     <MESSAGE value="Implementing the basic logging functionality and creating separate branch." />
     <MESSAGE value="Minor refactoring and adding logging." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor refactoring and adding logging." />
+    <MESSAGE value="Minor refactoring and adding logging to search_validation.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor refactoring and adding logging to search_validation.py" />
   </component>
 </project>
