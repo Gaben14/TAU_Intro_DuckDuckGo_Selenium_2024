@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Minor refactoring and adding logging to search_validation.py">
-      <change afterPath="$PROJECT_DIR$/logs/logger.py" afterDir="false" />
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Adding logging to assert_search.py and moving the logger a to a different file (logger.py)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assertions/assert_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/assertions/assert_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logs/logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_validation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -400,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718898260445</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Adding logging to assert_search.py and moving the logger a to a different file (logger.py)">
+      <option name="closed" value="true" />
+      <created>1719241395564</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1719241395564</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -415,7 +422,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moving the search locators to a new file called locators_search.py&#10;Updating the locators in locators_search.py" />
     <MESSAGE value="Moved the &quot;click_on_item()&quot; and &quot;get_html_css_class_list()&quot; to the search.py file.Updated some tests." />
     <MESSAGE value="Completing the test_change_licence test method in test_image_search.py. Also added get_child_link_of_dropdown_menu to search.py.&#10;Updated locators_image.py" />
     <MESSAGE value="Minor locator updates in locators_image.py" />
@@ -440,6 +446,7 @@
     <MESSAGE value="Implementing the basic logging functionality and creating separate branch." />
     <MESSAGE value="Minor refactoring and adding logging." />
     <MESSAGE value="Minor refactoring and adding logging to search_validation.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor refactoring and adding logging to search_validation.py" />
+    <MESSAGE value="Adding logging to assert_search.py and moving the logger a to a different file (logger.py)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding logging to assert_search.py and moving the logger a to a different file (logger.py)" />
   </component>
 </project>

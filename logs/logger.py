@@ -1,7 +1,6 @@
 import logging
 import datetime as dt
 
-
 def log_details():
     # Logging
     # Get the logger and set its level
