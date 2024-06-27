@@ -63,8 +63,7 @@ class DuckDuckGoSearchValidation:
         html_element_cls = html_element.get_attribute('class')
 
         self.then_assert_value_in_data_type(
-            'randomly_selected', html_element_cls)
-        # is-active
+            'is-active', html_element_cls)
 
     def then_assert_html_element_has_is_selected_cls(self, locator):
         html_element = self.browser.find_element(*locator)
