@@ -62,14 +62,8 @@ class DuckDuckGoSearchValidation:
         html_element = self.browser.find_element(*locator)
         html_element_cls = html_element.get_attribute('class')
 
-        if html_element_cls is None:
-            log_details().error(f"Invalid attribute!{locator[1]} "
-                                     f"does not have the attribute: class")
-            self.browser.save_screenshot(f"logs/{self.TODAY.month:02d}-{self.TODAY.day:02d}-{self.TODAY.year}-"
-                                         f"{html_element_cls}.png")
-
         self.then_assert_value_in_data_type(
-            'is-active', html_element_cls)
+            'is-active_2', html_element_cls)
 
     def then_assert_html_element_has_is_selected_cls(self, locator):
         html_element = self.browser.find_element(*locator)

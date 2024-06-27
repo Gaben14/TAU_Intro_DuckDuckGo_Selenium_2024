@@ -9,7 +9,7 @@ class AssertSearch:
         except AssertionError:
             log_details().critical(f"Assertion Error! "
                                    f"Value {value} can be found in {data_type} "
-                                   f"by default {value} should not be {data_type}!")
+                                   f"by default {value} should not be in {data_type}!")
     @staticmethod
     def assert_value_in_data_type(value, data_type):
         try:
@@ -17,7 +17,7 @@ class AssertSearch:
         except AssertionError:
             log_details().critical(f"Assertion Error! "
                                    f"Value {value} can't be found in {data_type} "
-                                   f"by default {value} should be {data_type}!")
+                                   f"by default {value} should be in {data_type}!")
 
     @staticmethod
     def assert_search_result_is_greater_as_0(search_results):

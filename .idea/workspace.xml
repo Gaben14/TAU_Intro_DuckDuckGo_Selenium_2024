@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Added the selenium save_screenshot to the loggers.">
-      <change afterPath="$PROJECT_DIR$/logs/log_configuration.py" afterDir="false" />
+    <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Adding the extra variable in the conftest.py for the log_configuration.py file. Also updating the screenshot with hour, minutes, seconds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assertions/assert_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/assertions/assert_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/logger.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -418,7 +415,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719412225368</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Adding the extra variable in the conftest.py for the log_configuration.py file. Also updating the screenshot with hour, minutes, seconds">
+      <option name="closed" value="true" />
+      <created>1719497627860</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1719497627860</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -433,7 +438,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Completing the test_change_licence test method in test_image_search.py. Also added get_child_link_of_dropdown_menu to search.py.&#10;Updated locators_image.py" />
     <MESSAGE value="Minor locator updates in locators_image.py" />
     <MESSAGE value="Removing .load() method from the test methods and also removing get_url() and load() from the conftest.py file. Adding the get() to the browser() fixture. Finishing the test_change_licenses test method." />
     <MESSAGE value="Refactored the locator files, created locator classes and used them in test files." />
@@ -458,6 +462,7 @@
     <MESSAGE value="Minor refactoring and adding logging to search_validation.py" />
     <MESSAGE value="Adding logging to assert_search.py and moving the logger a to a different file (logger.py)" />
     <MESSAGE value="Added the selenium save_screenshot to the loggers." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the selenium save_screenshot to the loggers." />
+    <MESSAGE value="Adding the extra variable in the conftest.py for the log_configuration.py file. Also updating the screenshot with hour, minutes, seconds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding the extra variable in the conftest.py for the log_configuration.py file. Also updating the screenshot with hour, minutes, seconds" />
   </component>
 </project>
