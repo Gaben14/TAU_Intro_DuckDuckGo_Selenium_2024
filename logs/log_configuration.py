@@ -1,7 +1,7 @@
 import logging
 import datetime as dt
 
-from tests.conftest import DRIVER_FOR_SCRSHOOT
+DRIVER_FOR_SCRSHOOT = None
 
 # class LogSearch:
 

@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e3e4847f-6841-49e1-bc74-1300fb37ee69" name="Changes" comment="Adding the extra variable in the conftest.py for the log_configuration.py file. Also updating the screenshot with hour, minutes, seconds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assertions/assert_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/assertions/assert_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log_configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_configuration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719497627860</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Adding the extra variable in the conftest.py for the log_configuration.py file. Also updating the screenshot with hour, minutes, seconds">
+      <option name="closed" value="true" />
+      <created>1719498439288</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1719498439288</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -5,7 +5,7 @@ import json
 import pytest
 import selenium.webdriver
 
-DRIVER_FOR_SCRSHOOT = None
+from logs import log_configuration
 
 @pytest.fixture
 def config(scope='session'):
@@ -44,8 +44,8 @@ def browser(config):
     # Make its calls wait up to 10 seconds for elements to appear
     browser_config.implicitly_wait(config["implicit_wait"])
 
-    #Export browser_config for the logger-screenshot
-    DRIVER_FOR_SCRSHOOT = browser_config
+    # Export browser_config for the logger-screenshot
+    log_configuration.DRIVER_FOR_SCRSHOOT = browser_config
 
     # Return the WebDriver instance for setup
     yield browser_config
