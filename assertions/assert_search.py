@@ -1,4 +1,5 @@
-from logs.logger import log_details
+# from logs.log_configuration import LogSearch
+from logs.log_configuration import log_details
 
 class AssertSearch:
     @staticmethod

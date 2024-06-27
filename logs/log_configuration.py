@@ -1,10 +1,16 @@
 import logging
 import datetime as dt
 
+from tests.conftest import DRIVER_FOR_SCRSHOOT
+
+# class LogSearch:
+
 def log_details():
     # Logging
     # Get the logger and set its level
     today = dt.datetime.today()
+    now = dt.datetime.now()
+
     log_filename = f"{today.month:02d}-{today.day:02d}-{today.year}.log"
 
     logger = logging.getLogger("searchLog")
@@ -26,5 +32,10 @@ def log_details():
     # Add the handlers to the logger
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
+
+    DRIVER_FOR_SCRSHOOT.save_screenshot(f"logs/{today.month:02d}-"
+                                 f"{today.day:02d}-{today.year}-"
+                                 f"{now.hour:02d}-{now.minute:02d}-"
+                                 f"{now.second:02d}.png")
 
     return logger
