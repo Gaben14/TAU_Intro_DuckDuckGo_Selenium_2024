@@ -18,13 +18,13 @@ class DuckDuckGoImageSearch(DuckDuckGoSearchPage):
     # Example: when_change_image_size
     def when_user_changes_image_size(self):
         # Change the value inside "All sizes" to "Medium"
-        image_size_dropdown = self.browser.find_element(*ImagePageLocators.IMAGE_SIZE_DROPDOWN)
+        image_size_dropdown = self.validate_if_locator_exists(ImagePageLocators.IMAGE_SIZE_DROPDOWN)
         image_size_dropdown.click()
-        image_size_medium = self.browser.find_element(*ImagePageLocators.IMAGE_SIZE_MEDIUM)
+        image_size_medium = self.validate_if_locator_exists(*ImagePageLocators.IMAGE_SIZE_MEDIUM)
         image_size_medium.click()
 
     # Get all image results:
     def then_get_img_results(self):
-        img_results = self.browser.find_elements(*ImagePageLocators.IMG_RESULTS)
+        img_results = self.validate_if_locators_exists(ImagePageLocators.IMG_RESULTS)
         return len(img_results)
 

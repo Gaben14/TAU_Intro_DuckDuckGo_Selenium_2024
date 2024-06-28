@@ -16,5 +16,5 @@ class DuckDuckGoVideoSearch(DuckDuckGoSearchPage):
         super().__init__(browser)
 
     def then_get_all_child_items(self, child_locator):
-        child_html_elements = self.browser.find_elements(*child_locator)
+        child_html_elements = self.validate_if_locators_exists(child_locator)
         return child_html_elements

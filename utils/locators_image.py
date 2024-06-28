@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class ImagePageLocators:
     # Locators:  all letters as uppercase
     IMAGES_TAB = (By.CSS_SELECTOR, 'a[data-testid="tab-label-images"]')
+    # IMAGES_TAB = (By.LINK_TEXT, 'Images')
     IMAGE_SIZE_DROPDOWN = (By.CLASS_NAME, 'dropdown--size')
     IMAGE_SIZE_MEDIUM = (By.CSS_SELECTOR, 'a[data-value="Medium"]')
 
